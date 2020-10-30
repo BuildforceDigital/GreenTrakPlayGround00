@@ -1,4 +1,4 @@
-package tutorial.service;
+package nl.greentrak.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

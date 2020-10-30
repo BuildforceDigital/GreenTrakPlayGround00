@@ -1,0 +1,122 @@
+{
+	"_version": "1.25.0",
+  "sap.app": {
+    "applicationVersion": {"version": "0.0.0"},
+    "dataSources": {
+      "employeeRemote": {
+        "uri": "/ContextPath/ServletPath.svc/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "4.0"
+        }
+      }
+    },
+    "description": "{{appDescription}}",
+    "i18n": {"bundleUrl": "i18n/i18n.properties", "supportedLocales": [""], "fallbackLocale": ""},
+    "title": "{{appTitle}}",
+    "type": "application"
+  },
+  "sap.ui": {
+    "deviceTypes": {
+      "desktop": true,
+      "phone": true,
+      "tablet": true
+    },
+    "technology": "UI5"
+  },
+  "sap.ui5": {
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "dependencies": {
+      "minUI5Version": "1.79.2",
+      "libs": {
+        "sap.m": {},
+				"sap.ui.core": {},
+				"sap.ui.layout": {}
+      }
+    },
+    "_comment": "handleValidation enables Form Field Validation",
+    "handleValidation": true,
+    "models": {
+      "attendanceEventMod": {
+        "dataSource": "employeeRemote",
+        "preload": true,
+        "settings": {
+          "autoExpandSelect": true,
+          "groupId": "$auto",
+          "operationMode": "Server",
+          "synchronizationMode": "None"
+        }
+      },
+      "i18n": {"type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "sap.ui.demo.nav.i18n.i18n",
+          "fallbackLocale": "",
+          "supportedLocales": [""]
+        }
+      }
+    },
+    "routing": {
+      "config": {
+        "async": true,
+        "bypassed": { "target": "notFound" },
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "routerClass": "sap.m.routing.Router",
+        "transition": "slide",
+        "viewPath": "sap.ui.demo.nav.view",
+        "viewType": "XML"
+      },
+      "routes": [
+        {
+          "pattern": "",
+          "name": "appHome",
+          "target": ["EmployeeOverviewContent"]
+        },
+        {
+          "pattern": "detail/{invoicePath}",
+          "name": "detail",
+          "target": ["detail"]
+        }
+      ],
+      "targets": {
+        "EmployeeOverview": {
+          "viewId": "idEmployeeOverview",
+          "viewPath": "sap.ui.demo.nav.view.employee.overview",
+          "viewName": "EmployeeOverview",
+          "viewLevel": 2
+        },
+        "detail": {
+          "viewId": "idParent",
+          "viewName": "Detail",
+          "viewPath": "sap.ui.demo.nav.view.employee.overview"
+        },
+        "EmployeeOverviewContent": {
+          "parent": "EmployeeOverview",
+          "viewId": "idEmployeeOverviewContent",
+          "viewPath": "sap.ui.demo.nav.view.employee.overview",
+          "viewName": "EmployeeOverviewContent",
+          "controlId": "EmployeeOverviewParent",
+          "controlAggregation": "content"
+        },
+        "notFound": {
+          "viewId": "iDNotFound",
+          "viewName": "NotFound",
+          "transition": "show"
+        },
+        "objectNotFound": {
+          "viewId": "idObjectNotFound",
+          "viewName": "ObjectNotFound",
+          "transition": "show"
+        }
+      }
+    },
+    "rootView": {
+      "async": true,
+      "type": "XML",
+      "viewName": "sap.ui.demo.nav.view.App"
+    }
+  }
+}

@@ -1,4 +1,4 @@
-package tutorial.service;
+package nl.greentrak.service;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -9,7 +9,7 @@ import nl.buildforce.olingo.commons.api.ex.ODataException;
 import nl.buildforce.sequoia.processor.core.api.JPAODataCRUDContextAccess;
 import nl.buildforce.sequoia.processor.core.api.JPAODataGetHandler;
 import nl.buildforce.sequoia.processor.core.processor.JPAODataRequestContextImpl;
-import tutorial.persistence.ExampleCUDRequestHandler;
+import nl.greentrak.persistence.ExampleCUDRequestHandler;
 
 @WebServlet(urlPatterns="/ServletPath.svc/*")
 public class OdataServlet extends HttpServlet {

@@ -1,4 +1,4 @@
-package tutorial.persistence
+package nl.greentrak.persistence
 
 import java.lang.reflect.{Constructor, InvocationTargetException}
 import java.{util => ju}

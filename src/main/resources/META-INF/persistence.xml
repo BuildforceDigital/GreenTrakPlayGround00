@@ -4,6 +4,9 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
              version="2.2">
     <persistence-unit name="GreenTrak00">
+        <class>nl.greentrak.model.AttendanceEventsAllEntity</class>
+        <class>nl.greentrak.model.UUIDAttributeConverter</class>
+        <class>nl.greentrak.model.A0000UsersEntity</class>
 
 
         <!--<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>-->
