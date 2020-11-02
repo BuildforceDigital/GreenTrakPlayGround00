@@ -24,7 +24,7 @@ sap.ui.define([
     "use strict";
 
     return BaseController.extend("sap.ui.demo.nav.controller.employee.overview.EmployeeOverviewContent", {
-        _getWeekNumber: (d) => {
+        _getISOWeekNumber: (d) => {
             // Copy date so don't modify original
             // Make Sunday's day number 7
             const oDate = new Date(d), dayOfWeek = oDate.getUTCDay() || 7;
@@ -38,14 +38,13 @@ sap.ui.define([
             return `W${weekNo}-${dayOfWeek}`
         },
 
-        getGroupHeader: function (oGroup) {
+        _getGroupHeader: function (oGroup) {
             const oDate = new Date(oGroup.key);
 
             return new GroupHeaderListItem({
                 tooltip: oGroup.key,
-                title:  `${oGroup.key} ${this._getWeekNumber(oDate)} ${oDate.toLocaleString('default', { weekday: 'short' })}`
-                /*,
-                count : "Total: 2h80, approved: 0h00, 0 %"*/
+                title:  `${this._getISOweekNumber(oDate)} ${oDate.toLocaleString('default', { weekday: 'short' })}`,
+                count : "Total: ?h??, approved: 0h00, 0 %"
             })
         },
 

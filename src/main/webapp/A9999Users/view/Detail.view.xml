@@ -26,60 +26,51 @@
                     <IconTabFilter key="personal" text="Personal Info" icon="sap-icon://employee">
                         <HBox justifyContent="SpaceBetween">
                             <VBox class="sapUiSmallMargin">
-                            <!--layout="ResponsiveGridLayout"labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+                                <!--layout="ResponsiveGridLayout"labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
                                           emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2"
                                           columnsL="1" columnsM="1" singleContainerFullSize="false"-->
-                            <f0:SimpleForm id="personalForm" editable="false"
-                                          title="Personal Info" labelSpanXL="4" labelSpanL="3"
-                                          >
-                                <f0:content>
-                                    <Label design="Bold" text="User Full Name"/>
-                                    <Text text="{FullName}"/>
-                                    <Label design="Bold" text="User Nick Name"/>
-                                    <Text text="{Nickname}"/>
-                                    <Label design="Bold" text="Gender"/>
-                                    <Text id="gender"
-                                          text="{= ${Gender} === 'M'?'Male': (${Gender} === 'F'?'Female':'Unknown')}"/>
-                                    <Label design="Bold" text="User Birthday"/>
-                                    <Text text="{BirthDay}"/>
-                                    <Label design="Bold" text="Nationality"/>
-                                    <Text text="{Nationality}"/>
-                                    <Label design="Bold" text="Citizen Service Number"/>
-                                    <Text text="{CitizenServiceNr}"/>
-                                    <Label design="Bold" text="Validity Ends"/>
-                                    <Text text="{TillDate}"/>
-                                </f0:content>
-                            </f0:SimpleForm>
-                        </VBox>
-                            <VBox class="sapUiSmallMarginBottom">
-                                <Image  decorative="false"
-                                        densityAware="false"
-                                        src="{UserImage}"
-                                        width="170px">
-                                    <detailBox>
-                                        <LightBox>
-                                            <LightBoxItem
-                                                    imageSrc="{UserImage}"
-                                                    alt="Beamer"
-                                                    title="This is a beamer"
-                                                    subtitle="This is beamer's description" />
-                                        </LightBox>
-                                    </detailBox>
-                                    <!-- Fixes HBox layout on Android Stock Browser for Android 5.0 -->
-                                    <layoutData>
-                                        <FlexItemData growFactor="1" shrinkFactor="0" />
-                                    </layoutData>
-                                </Image>
+                                <f0:SimpleForm id="personalForm" editable="false"
+                                               title="Personal Info" layout="ResponsiveGridLayout"
+                                               labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+                                               emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2"
+                                               columnsL="1" columnsM="1" singleContainerFullSize="false"
+                                >
+                                    <f0:content>
+                                        <Label design="Bold" text="User Full Name"/>
+                                        <Text text="{FullName}"/>
+                                        <Label design="Bold" text="User Nick Name"/>
+                                        <Text text="{Nickname}"/>
+                                        <Label design="Bold" text="Gender"/>
+                                        <Text id="gender"
+                                              text="{= ${Gender} === 'M'?'Male': (${Gender} === 'F'?'Female':'Unknown')}"/>
+                                        <Label design="Bold" text="User Birthday"/>
+                                        <Text text="{BirthDay}"/>
+                                        <Label design="Bold" text="Nationality"/>
+                                        <Text text="{Nationality}"/>
+                                        <Label design="Bold" text="Citizen Service Number"/>
+                                        <Text text="{CitizenServiceNr}"/>
+                                        <Label design="Bold" text="Validity Ends"/>
+                                        <Text text="{TillDate}"/>
+                                    </f0:content>
+                                </f0:SimpleForm>
+                            </VBox>
+                            <VBox>
+
+                                <Text id="detailsActiveImage" text="Active state image:" class="sapUiSmallMarginBottom"/>
+                                <Image ariaDetails="detailsActiveImage" src="{UserImage}"
+                                       width="170px"
+                                       decorative="false"
+                                       press=".handleImage3Press"/>
                             </VBox>
                         </HBox>
                     </IconTabFilter>
                     <IconTabFilter key="contact" text="Contact Info" icon="sap-icon://contacts">
                         <VBox class="sapUiSmallMargin">
                             <f0:SimpleForm id="contactForm" editable="false" layout="ResponsiveGridLayout"
-                                          title="Contact Info" labelSpanXL="4" labelSpanL="3"
-                                          labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
-                                          emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2"
-                                          columnsL="1" columnsM="1" singleContainerFullSize="false">
+                                           title="Contact Info" labelSpanXL="4" labelSpanL="3"
+                                           labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+                                           emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2"
+                                           columnsL="1" columnsM="1" singleContainerFullSize="false">
                                 <f0:content>
                                     <Label design="Bold" text="User Email ID"/>
                                     <Text text="{PrivateEmail}"/>
@@ -167,19 +158,19 @@
                                     </Column>
                                 </columns>
                                 <items>
-                                    <ColumnListItem id="item0" type="Navigation" press=".onItemPress">
+                                    <ColumnListItem id="item" type="Navigation" press=".onItemPress">
                                         <cells>
-                                            <Text text="{attendanceEventMod>ProjectCode}"/>
-                                            <Text text="{ type: 'sap.ui.model.odata.type.DateTimeOffset', formatOptions: { pattern: 'HH:mm' }, path: 'attendanceEventMod>CheckInDateTime' }"/>
-                                            <Text text="{ type: 'sap.ui.model.odata.type.DateTimeOffset', formatOptions: { pattern: 'HH:mm' }, path: 'attendanceEventMod>CheckOutDateTime' }"/>
+                                            <Text text="{ProjectCode}"/>
+                                            <Text text="{ type: 'sap.ui.model.odata.type.DateTimeOffset', formatOptions: { pattern: 'HH:mm' }, path: 'CheckInDateTime' }"/>
+                                            <Text text="{ type: 'sap.ui.model.odata.type.DateTimeOffset', formatOptions: { pattern: 'HH:mm' }, path: 'CheckOutDateTime' }"/>
                                             <ObjectNumber
-                                                    number="{parts: [ {path: 'attendanceEventMod>CheckInDateTime', type: 'sap.ui.model.type.String'}, {path: 'attendanceEventMod>CheckOutDateTime', type: 'sap.ui.model.type.String'}], formatter: '.computeDuration'}"/>
+                                                    number="{parts: [ {path: 'CheckInDateTime', type: 'sap.ui.model.type.String'}, {path: 'CheckOutDateTime', type: 'sap.ui.model.type.String'}], formatter: '.computeDuration'}"/>
                                             <ObjectNumber
-                                                    number="{parts: [ {path: 'attendanceEventMod>CheckInDateTime', type: 'sap.ui.model.type.String'}, {path: 'attendanceEventMod>CheckOutDateTime', type: 'sap.ui.model.type.String'}], formatter: '.computeDuration'}"/>
-                                            <Text text="{attendanceEventMod>Description}"/>
-                                            <Text text="{attendanceEventMod>ApprovalBy}"/>
-                                            <Text text="{path: 'attendanceEventMod>ApprovalDateTime', type: 'sap.ui.model.odata.type.DateTimeOffset', formatOptions: {pattern: 'yyyy-MM-dd HH:mm'}}"/>
-                                            <Text text="{attendanceEventMod>Remarks}"/>
+                                                    number="{parts: [ {path: 'CheckInDateTime', type: 'sap.ui.model.type.String'}, {path: 'CheckOutDateTime', type: 'sap.ui.model.type.String'}], formatter: '.computeDuration'}"/>
+                                            <Text text="{Description}"/>
+                                            <Text text="{ApprovalBy}"/>
+                                            <Text text="{path: 'ApprovalDateTime', type: 'sap.ui.model.odata.type.DateTimeOffset', formatOptions: {pattern: 'yyyy-MM-dd HH:mm'}}"/>
+                                            <Text text="{Remarks}"/>
                                         </cells>
                                     </ColumnListItem>
                                 </items>
@@ -190,10 +181,10 @@
                     <IconTabFilter key="account" text="Account Info" icon="sap-icon://account">
                         <VBox class="sapUiSmallMargin">
                             <f0:SimpleForm id="accountForm" editable="false" layout="ResponsiveGridLayout"
-                                          title="Account Info" labelSpanXL="4" labelSpanL="3"
-                                          labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
-                                          emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2"
-                                          columnsL="1" columnsM="1" singleContainerFullSize="false">
+                                           title="Account Info" labelSpanXL="4" labelSpanL="3"
+                                           labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+                                           emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2"
+                                           columnsL="1" columnsM="1" singleContainerFullSize="false">
                                 <f0:content>
                                     <Label design="Bold" text="User Name"/>
                                     <!--<Text id="empId" text="{path:'ID',formatter:'.formatNumber'}"/>-->
