@@ -25,7 +25,7 @@ sap.ui.define([
 
     return BaseController.extend("sap.ui.demo.nav.controller.employee.overview.EmployeeOverviewContent", {
 
-        getGroupHeader: function (oGroup) {
+        groupHeaderFactory: function (oGroup) {
             const oDate = new Date(oGroup.key);
             const computeISOweekN = d => {
                 // Copy date so don't modify original

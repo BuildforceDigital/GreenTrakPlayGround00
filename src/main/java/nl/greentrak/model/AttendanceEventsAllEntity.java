@@ -51,7 +51,11 @@ public class AttendanceEventsAllEntity {
     @Column(name = "\"ProjectCode\"", nullable = false, length = 10) private String projectCode;
     @Column(name = "\"ProjOwner\"", nullable = false, length = 36) private String projOwner;
     @Column(name = "\"Remarks\"", length = 480) private String remarks;
-    @Column(name = "\"StartDate\"") private OffsetDateTime startDate;
+
+    @Column(name = "\"AggStartDate\"") private OffsetDateTime aggStartDate;
+    @Column(name = "\"AggTotalTime\"") private String aggTotalTime;
+    @Column(name = "\"AggApprTime\"") private String aggApprTime;
+
     @Column(name = "\"TermGuidIn\"", nullable = false, length = 36) private String termGuidIn;
     @Column(name = "\"TermGuidOut\"", length = 36) private String termGuidOut;
 
@@ -142,13 +146,13 @@ public class AttendanceEventsAllEntity {
         this.remarks = remarks;
     }
 
-    public OffsetDateTime getStartDate() {
+    /*public OffsetDateTime getStartDate() {
         return startDate;
     }
 
     public void setStartDate(OffsetDateTime startDate) {
         this.startDate = startDate;
-    }
+    }*/
 
     public String getTermGuidIn() {
         return termGuidIn;

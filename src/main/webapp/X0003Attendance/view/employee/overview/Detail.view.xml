@@ -26,7 +26,7 @@
 
             <ObjectAttribute
                     title="StartDate"
-                    text="{path: 'attendanceEventMod>StartDate', type: 'sap.ui.model.odata.type.DateTimeOffset', formatOptions: {pattern: 'yyyy-MM-dd'}}"/>
+                    text="{path: 'attendanceEventMod>AggStartDate', type: 'sap.ui.model.odata.type.DateTimeOffset', formatOptions: {pattern: 'yyyy-MM-dd'}}"/>
             <ObjectAttribute
                     title="CheckInDateTime"
                     text="{ type: 'sap.ui.model.odata.type.DateTimeOffset', formatOptions: { pattern: 'HH:mm' }, path: 'attendanceEventMod>CheckInDateTime' }"/>
@@ -57,9 +57,9 @@
         <VBox class="sapUiSmallMargin">
             <Table id="employeesTable" alternateRowColors="true"
                    items="{ path: 'attendanceEventMod>/AttendanceEventsAllEntities',
-                            sorter: { descending: true, path : 'StartDate' },
+                            sorter: { descending: true, path : 'AggStartDate' },
                             filters: [{path: 'ParentGuid', operator: 'NE', value1: null},
-                                      {path: 'CheckInDateTime', operator: 'EQ', value1: 'attendanceEventMod>StartDate'}] }"
+                                      {path: 'CheckInDateTime', operator: 'EQ', value1: 'attendanceEventMod>AggStartDate'}] }"
                    itemPress=".onItemPressed">
                 <headerToolbar>
                     <Toolbar>

@@ -28,33 +28,34 @@ INSERT INTO DEV_GREENTRAK00.A0000USERS VALUES ('f2a3b1deee884b2885729d6afc856116
 
 CREATE TABLE DEV_GREENTRAK00."AttendanceEventsAll"
 (
-    ID               INTEGER                  NOT NULL,
-    "ProjOwner"        VARCHAR(36)              NOT NULL,
-    "ProjectCode"      VARCHAR(10)              NOT NULL,
-    "TermGuidIn"       VARCHAR(36)              NOT NULL,
-    "CheckInDateTime"  TIMESTAMP WITH TIME ZONE NOT NULL,
-    "UserID"           LONGVARBINARY            NOT NULL,
-    "UserName"         VARCHAR(40)              NOT NULL,
-    "ParentGuid"       integer,
-    "TermGuidOut"      VARCHAR(36),
-    "CheckOutDateTime" TIMESTAMP WITH TIME ZONE,
-    "StartDate"        DATE,
-    "Description"      VARCHAR(160),
+    ID                 INTEGER       NOT NULL,
+    "CheckInDateTime"  TIMESTAMP WITH TIME ZONE     NOT NULL,
+    "ProjOwner"        VARCHAR(36)   NOT NULL,
+    "ProjectCode"      VARCHAR(10)   NOT NULL,
+    "TermGuidIn"       VARCHAR(36)   NOT NULL,
+    "UserID"           LONGVARBINARY NOT NULL,
+    "UserName"         VARCHAR(40)   NOT NULL,
+    "AggApprTime"      VARCHAR(255),
+    "AggStartDate"     DATE,
+    "AggTotalTime"     VARCHAR(255),
     "ApprovalBy"       VARCHAR(40),
     "ApprovalDateTime" TIMESTAMP WITH TIME ZONE,
+    "CheckOutDateTime" TIMESTAMP WITH TIME ZONE,
+    "Description"      VARCHAR(160),
     "Remarks"          VARCHAR(480),
+    "TermGuidOut"      VARCHAR(36),
     PRIMARY KEY (ID)
 );
 
-INSERT INTO DEV_GREENTRAK00."AttendanceEventsAll" VALUES ( 0, 'WH&FF',          'PRUTSERIJ0', 'TERMINAL0000003', '2020-01-16 17:42:54.037088',  'f2a3b1deee884b2885729d6afc856116',     'TestActor05',  null,  null,             null,        '2020-02-16', null, null, null, null);
-INSERT INTO DEV_GREENTRAK00."AttendanceEventsAll" VALUES ( 1, 'WH&FF',          'PRUTSERIJ0', 'TERMINAL0000003', '2020-01-16 17:42:54.037088',  'f2a3b1deee884b2885729d6afc856116',      'TestActor05', null, 'TERMINAL0000001', '2020-01-16 19:22:54.037088', '2020-02-16', null,             null,    null,  null);
-INSERT INTO DEV_GREENTRAK00."AttendanceEventsAll" VALUES ( 2, 'WH&FF',          'PRUTSERIJ0', 'TERMINAL0000003', '2020-01-16 17:42:54.037088',  'f2a3b1deee884b2885729d6afc856116',      'TestActor05', null, 'TERMINAL0000001', '2020-01-16 17:22:54.037088', '2020-02-16', 'Tieback poured', 'FvdB', '2020-02-16 19:42:54.037088+02:00', null);
-INSERT INTO DEV_GREENTRAK00."AttendanceEventsAll" VALUES ( 3, 'Heijmans Infra', 'PRUTSERIJ0', 'TERMINAL0000003', '2020-05-16 19:42:54.037088+02:00','f2a3b1deee884b2885729d6afc856116',  'TestActor05', null, null, null,        '2020-05-16', null, null, null, null);
-INSERT INTO DEV_GREENTRAK00."AttendanceEventsAll" VALUES ( 4, 'Heijmans Infra', 'PRUTSERIJ0', 'TERMINAL0000003', '2020-05-16 17:42:54.037088+02:00','f2a3b1deee884b2885729d6afc856116',  'TestActor05', null, 'TERMINAL0000001', '2020-05-16 19:22:54.037088', '2020-05-16', null, null, null, null);
-INSERT INTO DEV_GREENTRAK00."AttendanceEventsAll" VALUES ( 5, 'Heijmans Infra', 'PRUTSERIJ0', 'TERMINAL0000003', '2020-05-16 15:42:54.037088+02:00','f2a3b1deee884b2885729d6afc856116',  'TestActor05', null, 'TERMINAL0000001', '2020-05-16 17:22:54.037088', '2020-05-16', 'Tieback poured', 'FvdB', '2020-05-16 19:42:54.037088+02:00', null);
-INSERT INTO DEV_GREENTRAK00."AttendanceEventsAll" VALUES ( 6, 'Heijmans Infra', 'ZUIDPLUS00', 'TERMINAL0000003', '2020-05-16 12:00:00.000000+02:00','f2a3b1deee884b2885729d6afc856116',  'TestActor05', null, 'TERMINAL0000001', '2020-05-16 17:22:54.037088', '2020-05-16', 'Tieback poured', 'FvdB', '2020-05-16 19:42:54.037088+02:00', null);
-INSERT INTO DEV_GREENTRAK00."AttendanceEventsAll" VALUES (10, 'Heijmans Infra', 'ZUIDPLUS00', 'TERMINAL0000003', '2020-05-16 12:00:00.000000+02:00','f2a3b1deee884b2885729d6afc856116',  'TestActor05', 6,    'TERMINAL0000001', '2020-05-16 17:22:54.037088', '2020-05-16', 'Tieback poured', 'FvdB', '2020-05-16 19:42:54.037088+02:00', null);
-INSERT INTO DEV_GREENTRAK00."AttendanceEventsAll" VALUES (11, 'Heijmans Infra', 'ZUIDPLUS00', 'TERMINAL0000003', '2020-05-16 12:00:00.000000+02:00','f2a3b1deee884b2885729d6afc856116',  'TestActor05', 10,   'TERMINAL0000001', '2020-05-16 17:22:54.037088', '2020-05-16', 'Tieback poured', 'FvdB', '2020-05-16 19:42:54.037088+02:00', null);
+INSERT INTO DEV_GREENTRAK00."AttendanceEventsAll"(ID, "CheckInDateTime", "ProjOwner", "ProjectCode", "TermGuidIn", "UserID", "UserName", "AggApprTime", "AggStartDate", "AggTotalTime", "ApprovalBy", "ApprovalDateTime", "CheckOutDateTime", "Description", "Remarks", "TermGuidOut") VALUES (0, '2020-01-16 16:42:54.037088+01:00', 'WH&FF', 'PRUTSERIJ0', 'TERMINAL0000003', x'F2A3B1DEEE884B2885729D6AFC856116', 'TestActor05', 'AggApprTime', '2020-02-16', 'AggTotalTime', null, null, null, null, null, null);
+INSERT INTO DEV_GREENTRAK00."AttendanceEventsAll"(ID, "CheckInDateTime", "ProjOwner", "ProjectCode", "TermGuidIn", "UserID", "UserName", "AggApprTime", "AggStartDate", "AggTotalTime", "ApprovalBy", "ApprovalDateTime", "CheckOutDateTime", "Description", "Remarks", "TermGuidOut") VALUES (1, '2020-01-16 16:42:54.037088+01:00', 'WH&FF', 'PRUTSERIJ0', 'TERMINAL0000003', x'F2A3B1DEEE884B2885729D6AFC856116', 'TestActor05', 'AggApprTime', '2020-02-16', 'AggTotalTime', null, null, '2020-01-16 18:22:54.037088+01:00', null, null, 'TERMINAL0000001');
+INSERT INTO DEV_GREENTRAK00."AttendanceEventsAll"(ID, "CheckInDateTime", "ProjOwner", "ProjectCode", "TermGuidIn", "UserID", "UserName", "AggApprTime", "AggStartDate", "AggTotalTime", "ApprovalBy", "ApprovalDateTime", "CheckOutDateTime", "Description", "Remarks", "TermGuidOut") VALUES (2, '2020-01-16 16:42:54.037088+01:00', 'WH&FF', 'PRUTSERIJ0', 'TERMINAL0000003', x'F2A3B1DEEE884B2885729D6AFC856116', 'TestActor05', 'AggApprTime', '2020-02-16', 'AggTotalTime', 'FvdB', '2020-02-16 17:42:54.037088+02:00', '2020-01-16 16:22:54.037088+01:00', 'Tieback poured', null, 'TERMINAL0000001');
+INSERT INTO DEV_GREENTRAK00."AttendanceEventsAll"(ID, "CheckInDateTime", "ProjOwner", "ProjectCode", "TermGuidIn", "UserID", "UserName", "AggApprTime", "AggStartDate", "AggTotalTime", "ApprovalBy", "ApprovalDateTime", "CheckOutDateTime", "Description", "Remarks", "TermGuidOut") VALUES (3, '2020-05-16 17:42:54.037088+02:00', 'Heijmans Infra', 'PRUTSERIJ0', 'TERMINAL0000003', x'F2A3B1DEEE884B2885729D6AFC856116', 'TestActor05', 'AggApprTime', '2020-05-16', 'AggTotalTime', null, null, null, null, null, null);
+INSERT INTO DEV_GREENTRAK00."AttendanceEventsAll"(ID, "CheckInDateTime", "ProjOwner", "ProjectCode", "TermGuidIn", "UserID", "UserName", "AggApprTime", "AggStartDate", "AggTotalTime", "ApprovalBy", "ApprovalDateTime", "CheckOutDateTime", "Description", "Remarks", "TermGuidOut") VALUES (4, '2020-05-16 15:42:54.037088+02:00', 'Heijmans Infra', 'PRUTSERIJ0', 'TERMINAL0000003', x'F2A3B1DEEE884B2885729D6AFC856116', 'TestActor05', 'AggApprTime', '2020-05-16', 'AggTotalTime', null, null, '2020-05-16 18:22:54.037088+01:00', null, null, 'TERMINAL0000001');
+INSERT INTO DEV_GREENTRAK00."AttendanceEventsAll"(ID, "CheckInDateTime", "ProjOwner", "ProjectCode", "TermGuidIn", "UserID", "UserName", "AggApprTime", "AggStartDate", "AggTotalTime", "ApprovalBy", "ApprovalDateTime", "CheckOutDateTime", "Description", "Remarks", "TermGuidOut") VALUES (5, '2020-05-16 13:42:54.037088+02:00', 'Heijmans Infra', 'PRUTSERIJ0', 'TERMINAL0000003', x'F2A3B1DEEE884B2885729D6AFC856116', 'TestActor05', 'AggApprTime', '2020-05-16', 'AggTotalTime', 'FvdB',     '2020-05-16 17:42:54.037088+02:00', '2020-05-16 16:22:54.037088+01:00', 'Tieback poured', null, 'TERMINAL0000001');
+INSERT INTO DEV_GREENTRAK00."AttendanceEventsAll"(ID, "CheckInDateTime", "ProjOwner", "ProjectCode", "TermGuidIn", "UserID", "UserName", "AggApprTime", "AggStartDate", "AggTotalTime", "ApprovalBy", "ApprovalDateTime", "CheckOutDateTime", "Description", "Remarks", "TermGuidOut") VALUES (6, '2020-05-16 10:00:00+02:00', 'Heijmans Infra', 'ZUIDPLUS00', 'TERMINAL0000003', x'F2A3B1DEEE884B2885729D6AFC856116', 'TestActor05', 'AggApprTime', '2020-05-16', 'AggTotalTime', 'FvdB',            '2020-05-16 17:42:54.037088+02:00', '2020-05-16 16:22:54.037088+01:00', 'Tieback poured', null, 'TERMINAL0000001');
+INSERT INTO DEV_GREENTRAK00."AttendanceEventsAll"(ID, "CheckInDateTime", "ProjOwner", "ProjectCode", "TermGuidIn", "UserID", "UserName", "AggApprTime", "AggStartDate", "AggTotalTime", "ApprovalBy", "ApprovalDateTime", "CheckOutDateTime", "Description", "Remarks", "TermGuidOut") VALUES (10,'2020-05-16 10:00:00+02:00', 'Heijmans Infra', 'ZUIDPLUS00', 'TERMINAL0000003', x'F2A3B1DEEE884B2885729D6AFC856116', 'TestActor05', 'AggApprTime', '2020-05-16', 'AggTotalTime', 'FvdB',              '2020-05-16 17:42:54.037088+02:00', '2020-05-16 16:22:54.037088+01:00', 'Tieback poured', null, 'TERMINAL0000001');
+INSERT INTO DEV_GREENTRAK00."AttendanceEventsAll"(ID, "CheckInDateTime", "ProjOwner", "ProjectCode", "TermGuidIn", "UserID", "UserName", "AggApprTime", "AggStartDate", "AggTotalTime", "ApprovalBy", "ApprovalDateTime", "CheckOutDateTime", "Description", "Remarks", "TermGuidOut") VALUES (11,'2020-05-16 10:00:00+02:00', 'Heijmans Infra', 'ZUIDPLUS00', 'TERMINAL0000003', x'F2A3B1DEEE884B2885729D6AFC856116', 'TestActor05', 'AggApprTime', '2020-05-16', 'AggTotalTime', 'FvdB',              '2020-05-16 17:42:54.037088+02:00', '2020-05-16 16:22:54.037088+01:00', 'Tieback poured', null, 'TERMINAL0000001');
 
 ALTER TABLE DEV_GREENTRAK00."AttendanceEventsAll" ADD CONSTRAINT "FK_AttendanceEventsAll_UserID" FOREIGN KEY ("UserID") REFERENCES DEV_GREENTRAK00.A0000USERS (ID);
 

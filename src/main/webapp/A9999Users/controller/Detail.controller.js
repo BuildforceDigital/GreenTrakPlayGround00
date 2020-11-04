@@ -132,7 +132,7 @@ sap.ui.define([
                 }
             });
         },
-        getGroupHeader: function (oGroup) {
+        groupHeaderFactory: function (oGroup) {
             const oDate = new Date(oGroup.key);
             const computeISOweekN = d => {
                 // Copy date so don't modify original
@@ -163,10 +163,5 @@ sap.ui.define([
             }
         },
 
-        _trimTextInput: function (oDlgEvent) {
-            const field = oDlgEvent.getSource();
-
-            this._oParentView.byId(field.getId()).setValue(field.getValue().trim())
-        }
     })
 });

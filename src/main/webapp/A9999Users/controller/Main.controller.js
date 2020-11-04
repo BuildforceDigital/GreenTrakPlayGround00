@@ -99,10 +99,6 @@ sap.ui.define([
             MessageToast.show("User list refreshed");
             empTable.setBusy(false);
         },
-        /*_trimTextInput: function (oDlgEvent) {
-          var field = oDlgEvent.getSource();
-          this.getView().byId(field.getId()).setValue(field.getValue().trim())
-        },*/
         onClose: function (oEvent) {
             const oDialog = (oEvent.getSource()).getEventingParent();
             oDialog.close();
@@ -171,8 +167,17 @@ sap.ui.define([
                 }, this),
                 "Delete User");
         },
+        /*
+                /*_trimTextInput: function (oDlgEvent) {
+          var field = oDlgEvent.getSource();
+          this.getView().byId(field.getId()).setValue(field.getValue().trim())
+        },
+                _trimTextInput: function (oDlgEvent) {
+            const field = oDlgEvent.getSource();
 
-        /*onInputTextChange: function (oDlgEvent) {
+            this._oParentView.byId(field.getId()).setValue(field.getValue().trim())
+        }
+            onInputTextChange: function (oDlgEvent) {
           this._trimTextInput(oDlgEvent)
         },*/
         onItemPress: function (oEvent) { //navigation

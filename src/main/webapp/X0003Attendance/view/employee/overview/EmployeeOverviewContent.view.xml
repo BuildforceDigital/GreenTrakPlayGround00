@@ -3,9 +3,9 @@
     <VBox class="sapUiSmallMargin">
         <Table id="employeesTable" alternateRowColors="true"
                items="{ path: 'attendanceEventMod>/AttendanceEventsAllEntities',
-                        parameters: {$select:'StartDate'},
-                        sorter : { descending: true, group : true, path : 'StartDate' },
-                        groupHeaderFactory: '.getGroupHeader'
+                        parameters: {$select:'AggStartDate'},
+                        sorter : { descending: true, group : true, path : 'AggStartDate' },
+                        groupHeaderFactory: '.groupHeaderFactory'
                       }"
                itemPress=".onItemPressed">
             <headerToolbar>
