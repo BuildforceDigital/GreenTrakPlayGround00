@@ -24,26 +24,26 @@ sap.ui.define([
     "use strict";
 
     return BaseController.extend("sap.ui.demo.nav.controller.employee.overview.EmployeeOverviewContent", {
-        _getISOWeekNumber: (d) => {
-            // Copy date so don't modify original
-            // Make Sunday's day number 7
-            const oDate = new Date(d), dayOfWeek = oDate.getUTCDay() || 7;
-            // Set to nearest Thursday: current date + 4 - current day number
-            oDate.setUTCDate(oDate.getUTCDate() + 4 - dayOfWeek);
-            // Get first day of year
-            const yearStart = new Date(Date.UTC(oDate.getUTCFullYear(), 0, 1));
-            // Calculate full weeks to nearest Thursday
-            const weekNo = Math.ceil((((oDate - yearStart) / 86400000) + 1) / 7);
-            // Return array of year and week number
-            return `W${weekNo}-${dayOfWeek}`
-        },
 
-        _getGroupHeader: function (oGroup) {
+        getGroupHeader: function (oGroup) {
             const oDate = new Date(oGroup.key);
+            const computeISOweekN = d => {
+                // Copy date so don't modify original
+                // Make Sunday's day number 7
+                const oDate = new Date(d), dayOfWeek = oDate.getUTCDay() || 7;
+                // Set to nearest Thursday: current date + 4 - current day number
+                oDate.setUTCDate(oDate.getUTCDate() + 4 - dayOfWeek);
+                // Get first day of year
+                const yearStart = new Date(Date.UTC(oDate.getUTCFullYear(), 0, 1));
+                // Calculate full weeks to nearest Thursday
+                const weekNo = Math.ceil((((oDate - yearStart) / 86400000) + 1) / 7);
+                // Return array of year and week number
+                return `W${weekNo}-${dayOfWeek}`
+            }
 
             return new GroupHeaderListItem({
                 tooltip: oGroup.key,
-                title:  `${this._getISOweekNumber(oDate)} ${oDate.toLocaleString('default', { weekday: 'short' })}`,
+                title:  `${computeISOweekN(oDate)} ${oDate.toLocaleString('default', { weekday: 'short' })}`,
                 count : "Total: ?h??, approved: 0h00, 0 %"
             })
         },
