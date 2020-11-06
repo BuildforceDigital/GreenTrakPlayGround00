@@ -1,8 +1,9 @@
 sap.ui.define([
     "sap/m/GroupHeaderListItem",
     "sap/m/MessageBox",
+    "sap/ui/core/UIComponent",
     "sap/ui/core/mvc/Controller"
-], function (GroupHeaderListItem, MessageBox, Controller) {
+], (GroupHeaderListItem, MessageBox, UIComponent, Controller) => {
     const batchGroupId = "UserGroup";
 
     "use strict";
@@ -122,6 +123,16 @@ sap.ui.define([
         /* =========================================================== */
         /* begin: internal methods                                     */
         /* =========================================================== */
+
+        onItemPress: function (oEvent) {
+            const oItem = oEvent.getSource();
+            const oRouter = UIComponent.getRouterFor(this);
+
+            console.log("Navigatie", window.encodeURIComponent(oItem.getBindingContext("").getPath().substr(1)));
+            oRouter.navTo("detail", {
+                invoicePath: window.encodeURIComponent(oItem.getBindingContext("").getPath().substr(1))
+            })
+        },
 
         _onRouteMatched: function (oEvent) {
             this.getView().byId("empIconTabBar").setSelectedKey("timesheet");

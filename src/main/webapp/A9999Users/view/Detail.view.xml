@@ -1,4 +1,4 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:f0="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:f0="sap.ui.layout.form"
           sId="Detail"
           xmlns="sap.m" controllerName="sap.ui.demo.basicTemplate.controller.Detail">
     <Page id="detailPage">
@@ -26,34 +26,31 @@
                     <IconTabFilter key="personal" text="Personal Info" icon="sap-icon://employee">
                         <HBox justifyContent="SpaceBetween">
                             <VBox class="sapUiSmallMargin">
-                            <!--layout="ResponsiveGridLayout"labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
-                                          emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2"
-                                          columnsL="1" columnsM="1" singleContainerFullSize="false"-->
-                            <f0:SimpleForm id="personalForm" editable="false"
+                                <f0:SimpleForm id="personalForm" editable="false"
                                                title="Personal Info" layout="ResponsiveGridLayout"
                                                labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
                                                emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2"
                                                columnsL="1" columnsM="1" singleContainerFullSize="false"
-                                          >
-                                <f0:content>
-                                    <Label design="Bold" text="User Full Name"/>
-                                    <Text text="{FullName}"/>
-                                    <Label design="Bold" text="User Nick Name"/>
-                                    <Text text="{Nickname}"/>
-                                    <Label design="Bold" text="Gender"/>
-                                    <Text id="gender"
-                                          text="{= ${Gender} === 'M'?'Male': (${Gender} === 'F'?'Female':'Unknown')}"/>
-                                    <Label design="Bold" text="User Birthday"/>
-                                    <Text text="{BirthDay}"/>
-                                    <Label design="Bold" text="Nationality"/>
-                                    <Text text="{Nationality}"/>
-                                    <Label design="Bold" text="Citizen Service Number"/>
-                                    <Text text="{CitizenServiceNr}"/>
-                                    <Label design="Bold" text="Validity Ends"/>
-                                    <Text text="{TillDate}"/>
-                                </f0:content>
-                            </f0:SimpleForm>
-                        </VBox>
+                                >
+                                    <f0:content>
+                                        <Label design="Bold" text="User Full Name"/>
+                                        <Text text="{FullName}"/>
+                                        <Label design="Bold" text="User Nick Name"/>
+                                        <Text text="{Nickname}"/>
+                                        <Label design="Bold" text="Gender"/>
+                                        <Text id="gender"
+                                              text="{= ${Gender} === 'M'?'Male': (${Gender} === 'F'?'Female':'Unknown')}"/>
+                                        <Label design="Bold" text="User Birthday"/>
+                                        <Text text="{BirthDay}"/>
+                                        <Label design="Bold" text="Nationality"/>
+                                        <Text text="{Nationality}"/>
+                                        <Label design="Bold" text="Citizen Service Number"/>
+                                        <Text text="{CitizenServiceNr}"/>
+                                        <Label design="Bold" text="Validity Ends"/>
+                                        <Text text="{TillDate}"/>
+                                    </f0:content>
+                                </f0:SimpleForm>
+                            </VBox>
                             <VBox>
 
                                 <Text id="detailsActiveImage" text="Active state image:" class="sapUiSmallMarginBottom"/>
@@ -67,10 +64,10 @@
                     <IconTabFilter key="contact" text="Contact Info" icon="sap-icon://contacts">
                         <VBox class="sapUiSmallMargin">
                             <f0:SimpleForm id="contactForm" editable="false" layout="ResponsiveGridLayout"
-                                          title="Contact Info" labelSpanXL="4" labelSpanL="3"
-                                          labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
-                                          emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2"
-                                          columnsL="1" columnsM="1" singleContainerFullSize="false">
+                                           title="Contact Info" labelSpanXL="4" labelSpanL="3"
+                                           labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+                                           emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2"
+                                           columnsL="1" columnsM="1" singleContainerFullSize="false">
                                 <f0:content>
                                     <Label design="Bold" text="User Email ID"/>
                                     <Text text="{PrivateEmail}"/>
@@ -89,8 +86,9 @@
                             <Table id="employeesTable" alternateRowColors="true"
                                    items="{ path: 'RegHours',
                                    templateShareable: false,
-                        parameters: {$select:'AggStartDate'},
-                        sorter : { descending: true, group : true, path : 'AggStartDate' },
+                        parameters: { $select:['AggStartDate', 'AggApprTime', 'AggTotalTime'] },
+                        sorter: [{ descending: true, path: 'AggStartDate', group : true },
+                                 { descending: true, path: 'AggApprTime' }],
                         groupHeaderFactory: '.groupHeaderFactory'
                       }"
                                    itemPress=".onItemPressed">
@@ -181,10 +179,10 @@
                     <IconTabFilter key="account" text="Account Info" icon="sap-icon://account">
                         <VBox class="sapUiSmallMargin">
                             <f0:SimpleForm id="accountForm" editable="false" layout="ResponsiveGridLayout"
-                                          title="Account Info" labelSpanXL="4" labelSpanL="3"
-                                          labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
-                                          emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2"
-                                          columnsL="1" columnsM="1" singleContainerFullSize="false">
+                                           title="Account Info" labelSpanXL="4" labelSpanL="3"
+                                           labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+                                           emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2"
+                                           columnsL="1" columnsM="1" singleContainerFullSize="false">
                                 <f0:content>
                                     <Label design="Bold" text="User Name"/>
                                     <!--<Text id="empId" text="{path:'ID',formatter:'.formatNumber'}"/>-->
