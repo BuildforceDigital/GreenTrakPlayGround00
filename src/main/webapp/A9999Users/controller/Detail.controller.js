@@ -14,7 +14,7 @@ sap.ui.define([
         /* =========================================================== */
 
         onInit: function () {
-            const oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            const oRouter = UIComponent.getRouterFor(this);
             oRouter.getRoute("Detail").attachMatched(this._onRouteMatched, this);
         },
 
@@ -128,16 +128,17 @@ sap.ui.define([
             const oItem = oEvent.getSource();
             const oRouter = UIComponent.getRouterFor(this);
 
-            console.log("Navigatie", window.encodeURIComponent(oItem.getBindingContext("").getPath().substr(1)));
             oRouter.navTo("detail", {
-                invoicePath: window.encodeURIComponent(oItem.getBindingContext("").getPath().substr(1))
+                invoicePath: window.encodeURIComponent(oItem.getBindingContext("remoteOData").getPath().substr(1))
             })
         },
 
         _onRouteMatched: function (oEvent) {
             this.getView().byId("empIconTabBar").setSelectedKey("timesheet");
+
             this.getView().bindElement({
                 path: "/" + oEvent.getParameter("arguments").employeePath,
+                model: "remoteOData",
                 parameters: {
                     $$updateGroupId: batchGroupId
                 }

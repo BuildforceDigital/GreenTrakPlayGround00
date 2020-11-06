@@ -22,7 +22,7 @@
                    growingThreshold="5"
                    growingScrollToLoad="true"
                    includeItemInSelection="false"
-                   items="{ path: '/A0000UsersEntities',
+                   items="{ path: 'remoteOData>/A0000UsersEntities',
 						parameters: {$select:'Nickname,FullName',
 						$count: true, $$updateGroupId : 'UserGroup' } }"
                    mode="SingleSelectLeft"
@@ -32,11 +32,11 @@
                 <items>
                     <ColumnListItem id="item0" type="Navigation" press="onItemPress">
                         <cells>
-                            <Text text="{Nickname}"/>
-                            <Text text="{FullName}"/>
+                            <Text text="{remoteOData>Nickname}"/>
+                            <Text text="{remoteOData>FullName}"/>
                             <!--<Text text="{= ${0} === '0'?'Male':'Female'}"/>-->
-                            <Text text="{Gender}"/>
-                            <Text text="{UserName}"/>
+                            <Text text="{remoteOData>Gender}"/>
+                            <Text text="{remoteOData>UserName}"/>
                         </cells>
                     </ColumnListItem>
                 </items>

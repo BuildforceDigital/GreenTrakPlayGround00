@@ -37,7 +37,7 @@
     "_comment": "handleValidation enables Form Field Validation",
     "handleValidation": true,
     "models": {
-      "": {
+      "remoteOData": {
         "dataSource": "default",
         "preload": true,
         "settings": {

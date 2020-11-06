@@ -183,8 +183,9 @@ sap.ui.define([
         onItemPress: function (oEvent) { //navigation
             const oItem = oEvent.getSource();
             const oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+
             oRouter.navTo("Detail", {
-                employeePath: encodeURIComponent(oItem.getBindingContext().getPath().substr(1))
+                employeePath: encodeURIComponent(oItem.getBindingContext("remoteOData").getPath().substr(1))
             });
         },
         onLogoutPress: function (oEvent) {
