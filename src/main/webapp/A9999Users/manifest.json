@@ -90,6 +90,10 @@
         "Detail": {
           "pattern": "Detail/{employeePath}",
           "target": ["targetDetail"]
+        },
+        "Detail2": {
+          "pattern": "Detail2/{invoicePath}",
+          "target": ["targetDetail2"]
         }
       },
       "targets": {
@@ -102,6 +106,12 @@
           "transition": "slide",
           "viewLevel": 2,
           "viewName": "Detail"
+        },
+        "targetDetail2": {
+          "transition": "slide",
+          "viewLevel": 2,
+          "viewName": "Detail",
+          "viewPath": "sap.ui.demo.basicTemplate.view.employee"
         }
       }
     }

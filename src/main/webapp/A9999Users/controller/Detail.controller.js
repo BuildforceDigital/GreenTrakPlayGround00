@@ -128,8 +128,12 @@ sap.ui.define([
             const oItem = oEvent.getSource();
             const oRouter = UIComponent.getRouterFor(this);
 
-            oRouter.navTo("detail", {
-                invoicePath: window.encodeURIComponent(oItem.getBindingContext("remoteOData").getPath().substr(1))
+            const path = oItem.getBindingContext().getPath();
+
+            const subPath = path.substring(path.indexOf("RegHours")).replace("RegHours", "AttendanceEventsAllEntities");
+
+            oRouter.navTo("Detail2", {
+                invoicePath: window.encodeURIComponent(subPath)
             })
         },
 
