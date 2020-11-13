@@ -138,7 +138,6 @@ sap.ui.define([
 
             this.getView().bindElement({
                 path: "/" + oEvent.getParameter("arguments").employeePath,
-                model: "remoteOData",
                 parameters: {
                     $$updateGroupId: batchGroupId
                 }

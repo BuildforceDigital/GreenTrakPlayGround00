@@ -185,7 +185,7 @@ sap.ui.define([
             const oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 
             oRouter.navTo("Detail", {
-                employeePath: encodeURIComponent(oItem.getBindingContext("remoteOData").getPath().substr(1))
+                employeePath: oItem.getBindingContext("remoteOData").getPath().substr(1)
             });
         },
         onLogoutPress: function (oEvent) {

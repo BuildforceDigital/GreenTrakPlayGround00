@@ -7,7 +7,6 @@
         "uri": "/ContextPath/ServletPath.svc/",
         "type": "OData",
         "settings": {
-          "autoExpandSelect": true,
           "odataVersion": "4.0"
         }
       }
@@ -37,6 +36,15 @@
     "_comment": "handleValidation enables Form Field Validation",
     "handleValidation": true,
     "models": {
+      "": {
+        "dataSource": "default",
+        "preload": true,
+        "settings": {
+          "autoExpandSelect": true,
+          "operationMode": "Server",
+          "synchronizationMode": "None"
+        }
+      },
       "remoteOData": {
         "dataSource": "default",
         "preload": true,
