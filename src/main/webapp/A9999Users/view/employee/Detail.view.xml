@@ -27,7 +27,7 @@
 
             <ObjectAttribute
                     title="StartDate"
-                    text="{path: 'remoteOData>StartDate', type: 'sap.ui.model.odata.type.DateTimeOffset', formatOptions: {pattern: 'yyyy-MM-dd'}}"/>
+                    text="{path: 'remoteOData>AggStartDate', type: 'sap.ui.model.odata.type.DateTimeOffset', formatOptions: {pattern: 'yyyy-MM-dd'}}"/>
             <ObjectAttribute
                     title="CheckInDateTime"
                     text="{ type: 'sap.ui.model.odata.type.DateTimeOffset', formatOptions: { pattern: 'HH:mm' }, path: 'remoteOData>CheckInDateTime' }"/>

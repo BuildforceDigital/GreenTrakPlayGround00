@@ -21,39 +21,47 @@ import java.util.UUID;
 public class AttendanceEventsAllEntity {
 
     @Id
-    @Column(name = "ID")
-    private Integer id;
+    @Column(name = "\"UserID\"", nullable = false)
+    @Convert(converter = UUIDAttributeConverter.class)
+    private UUID userID;
 
     @Id
     @Column(name = "\"Version\"")
     private Integer version;
 
-    @Column(name = "\"ApprovalBy\"", length = 40)
+    @Id
+    @Column(name = "\"CheckInDateTime\"", nullable = false)
+    private OffsetDateTime checkInDateTime;
 
+    @Column(name = "\"ApprovalDateTime\"")
+    private OffsetDateTime approvalDateTime;
+
+    @Column(name = "\"ApprovalBy\"", length = 40)
     private String approvalBy;
 
-    public A0000UsersEntity getHourWriter() {
-        return hourWriter;
+    public A0000UsersEntity getAttendanceEventsAll_UserID() {
+        return attendanceEventsAll_UserID;
     }
 
-    public void setHourWriter(A0000UsersEntity hourWriter) {
-        this.hourWriter = hourWriter;
+    public void setAttendanceEventsAll_UserID(A0000UsersEntity attendanceEventsAll_UserID) {
+        this.attendanceEventsAll_UserID = attendanceEventsAll_UserID;
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(/*referencedColumnName = "ID",*/ name = "\"UserID\"", nullable = false, insertable = false, updatable = false)
-    private A0000UsersEntity hourWriter;
+    @JoinColumn(name = "\"UserID\"", nullable = false, insertable = false, updatable = false)
+    private A0000UsersEntity attendanceEventsAll_UserID;
 
-    @Column(name = "\"UserID\"", nullable = false)
-    @Convert(converter = UUIDAttributeConverter.class)
-    private UUID userID;
+    @Column(name = "\"CheckOutDateTime\"")
+    private OffsetDateTime checkOutDateTime;
 
-    @Column(name = "\"ApprovalDateTime\"") private OffsetDateTime approvalDateTime;
-    @Column(name = "\"CheckInDateTime\"", nullable = false) private OffsetDateTime checkInDateTime;
-    @Column(name = "\"CheckOutDateTime\"") private OffsetDateTime checkOutDateTime;
+
     @Column(name = "\"Description\"", length = 160) private String description;
     @Column(name = "\"ProjectCode\"", nullable = false, length = 10) private String projectCode;
-    @Column(name = "\"ProjOwner\"", nullable = false, length = 36) private String projOwner;
+
+    @Column(name = "\"ProjOwner\"", nullable = false)
+    @Convert(converter = UUIDAttributeConverter.class)
+    private UUID projOwner;
+
     @Column(name = "\"Remarks\"", length = 480) private String remarks;
 
     @Column(name = "\"AggStartDate\"") private OffsetDateTime aggStartDate;
@@ -76,14 +84,6 @@ public class AttendanceEventsAllEntity {
 
     public AttendanceEventsAllEntity() {
         // required for JPA
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getApprovalBy() {
@@ -134,11 +134,11 @@ public class AttendanceEventsAllEntity {
         this.projectCode = projectCode;
     }
 
-    public String getProjOwner() {
+    public UUID getProjOwner() {
         return projOwner;
     }
 
-    public void setProjOwner(String projOwner) {
+    public void setProjOwner(UUID projOwner) {
         this.projOwner = projOwner;
     }
 

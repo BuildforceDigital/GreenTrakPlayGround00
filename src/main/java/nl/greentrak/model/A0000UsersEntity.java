@@ -66,7 +66,7 @@ public class A0000UsersEntity {
 
 
     //@BeanProperty
-    @OneToMany(mappedBy = "hourWriter", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "attendanceEventsAll_UserID", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<AttendanceEventsAllEntity> regHours = new ArrayList();
 
 
