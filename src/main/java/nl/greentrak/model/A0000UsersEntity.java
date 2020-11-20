@@ -69,5 +69,8 @@ public class A0000UsersEntity {
     @OneToMany(mappedBy = "attendanceEventsAll_UserID", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<AttendanceEventsAllEntity> regHours = new ArrayList();
 
+    /*@@@@@OneToMany(mappedBy = "projectsOwned", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<AttendanceEventsAllEntity> ownProjects = new ArrayList();*/
+
 
 }
