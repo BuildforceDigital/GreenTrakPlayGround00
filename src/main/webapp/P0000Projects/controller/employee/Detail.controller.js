@@ -7,31 +7,24 @@ sap.ui.define([
 ], function (Controller, History, MessageToast, JSONModel, UIComponent) {
     "use strict";
 
-    return Controller.extend("sap.ui.demo.nav.controller.employee.overview.Detail", {
+    return Controller.extend("sap.ui.demo.basicTemplate.controller.employee.Detail", {
 
         onInit: function () {
             //const oViewModel = new JSONModel({ currency: "EUR" });
             //this.getView().setModel(oViewModel, "view");
 
             const oRouter = UIComponent.getRouterFor(this);
-            oRouter.getRoute("detail").attachPatternMatched(this._onObjectMatched, this);
+            oRouter.getRoute("Detail2").attachPatternMatched(this._onObjectMatched, this);
         },
 
         _onObjectMatched: function (oEvent) {
             //this.byId("rating").reset();
+            console.log("/" + window.decodeURIComponent(oEvent.getParameter("arguments").invoicePath));
+
             this.getView().bindElement({
                 path: "/" + window.decodeURIComponent(oEvent.getParameter("arguments").invoicePath),
-                model: "attendanceEventMod"
+                model: "remoteOData"
             });
-        },
-
-        computeDuration: function (strDateBeg, strDateEnd) {
-            const formatTwoDigits = (n) => n < 10 ? '0' + n : n;
-
-            if (strDateEnd) {
-                const elapsed = new Date(new Date(strDateEnd) - new Date(strDateBeg));
-                return elapsed.getUTCHours() + "h" + formatTwoDigits(elapsed.getUTCMinutes())
-            }
         },
 
         onNavBack: function () {

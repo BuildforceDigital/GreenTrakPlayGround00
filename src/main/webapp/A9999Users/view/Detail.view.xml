@@ -86,7 +86,7 @@
                             <Table id="employeesTable" alternateRowColors="true"
                                    items="{ path: 'RegHours',
                                    templateShareable: false,
-                        parameters: { $select:['AggStartDate', 'AggApprTime', 'AggTotalTime'] },
+                        parameters: { $select:['AggStartDate'], $orderby : 'CheckInDateTime desc' },
                         sorter: [{ descending: true, path: 'AggStartDate', group : true },
                                  { descending: true, path: 'AggApprTime' }],
                         groupHeaderFactory: '.groupHeaderFactory'

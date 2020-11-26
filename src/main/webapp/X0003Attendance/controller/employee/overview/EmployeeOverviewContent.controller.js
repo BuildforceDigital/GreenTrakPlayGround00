@@ -42,9 +42,9 @@ sap.ui.define([
             }
 
             return new GroupHeaderListItem({
-                tooltip: oGroup.key,
+                count : "Total: ?h??, approved: 0h00, 0 %",
                 title:  `${computeISOweekN(oDate)} ${oDate.toLocaleString('default', { weekday: 'short' })}`,
-                count : "Total: ?h??, approved: 0h00, 0 %"
+                tooltip: oGroup.key
             })
         },
 

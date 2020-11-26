@@ -3,14 +3,14 @@
     <VBox class="sapUiSmallMargin">
         <Table id="employeesTable" alternateRowColors="true"
                items="{ path: 'attendanceEventMod>/AttendanceEventsAllEntities',
-                        parameters: {$select:'AggStartDate'},
+               parameters: {$select:'AggStartDate', $orderby : 'CheckInDateTime desc'},
                         sorter : { descending: true, group : true, path : 'AggStartDate' },
                         groupHeaderFactory: '.groupHeaderFactory'
                       }"
                itemPress=".onItemPressed">
             <headerToolbar>
                 <Toolbar>
-                    <Title text="Attendance events content" level="H2"/>
+                    <Title text="Attendance events content2" level="H2"/>
                     <ToolbarSpacer/>
                     <DateRangeSelection maxDate="{:= ${appModel>/now}}" change=".handleChange"
                                         displayFormat="yyyy-MM-dd" tooltip="View Filter Settings" width="15em"/>

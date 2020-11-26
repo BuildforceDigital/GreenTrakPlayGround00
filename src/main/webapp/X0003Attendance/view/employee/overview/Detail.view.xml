@@ -5,7 +5,7 @@
     <Page title="Revision"
           showNavButton="true"
           navButtonPress=".onNavBack">
-        <ObjectHeader id="oh1"
+        <ObjectHeader id="oHeader"
                       responsive="true"
                       fullScreenOptimized="true"
                       binding="{/ProductCollection/2}"
@@ -58,7 +58,7 @@
             <Table id="employeesTable" alternateRowColors="true"
                    items="{ path: 'attendanceEventMod>/AttendanceEventsAllEntities',
                             sorter: { descending: true, path : 'AggStartDate' },
-                            filters: [{path: 'CheckInDateTime', operator: 'EQ', value1: 'attendanceEventMod>AggStartDate'}] }"
+                            filters: [{path: 'CheckInDateTime', operator: 'EQ', value1: 'AggStartDate'}] }"
                    itemPress=".onItemPressed">
                 <headerToolbar>
                     <Toolbar>
