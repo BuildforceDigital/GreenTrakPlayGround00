@@ -56,7 +56,7 @@
         </ObjectHeader>
         <VBox class="sapUiSmallMargin">
             <Table id="employeesTable" alternateRowColors="true"
-                   items="{ path: 'attendanceEventMod>/AttendanceEventsAllEntities',
+                   items="{ path: 'attendanceEventMod>/VAttendanceEventsAllEntities',
                             sorter: { descending: true, path : 'AggStartDate' },
                             filters: [{path: 'CheckInDateTime', operator: 'EQ', value1: 'AggStartDate'}] }"
                    itemPress=".onItemPressed">

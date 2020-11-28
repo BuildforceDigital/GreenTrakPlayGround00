@@ -58,7 +58,7 @@
         <VBox class="sapUiSmallMargin">
             <Table id="employeesTable" alternateRowColors="true"
                    items="{ path: 'remoteOData>/AttendanceEventsAllEntities',
-                            sorter: { descending: true, path : 'remoteOData>CheckInDateTime' } }"
+                            sorter: { descending: true, path : 'Version' } }"
                    itemPress=".onItemPressed">
                 <headerToolbar>
                     <Toolbar>

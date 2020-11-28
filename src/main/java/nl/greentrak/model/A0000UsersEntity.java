@@ -67,7 +67,7 @@ public class A0000UsersEntity {
 
     //@BeanProperty
     @OneToMany(mappedBy = "attendanceEventsAll_UserID", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<AttendanceEventsAllEntity> regHours = new ArrayList();
+    private List<VAttendanceEventsAllEntity> regHours = new ArrayList();
 
     /*@@@@@OneToMany(mappedBy = "projectsOwned", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<AttendanceEventsAllEntity> ownProjects = new ArrayList();*/

@@ -157,7 +157,7 @@ sap.ui.define([
         },
         onDelete: function (oEvent) {
             const oSelected = this.getView().byId("emptable").getSelectedItem(),
-            fullName = oSelected.getBindingContext().getProperty("FullName");
+                fullName = oSelected.getBindingContext().getProperty("FullName");
 
             MessageBox.confirm("Do you sure want to delete User profile: " + fullName,
                 jQuery.proxy(function (bResult) {

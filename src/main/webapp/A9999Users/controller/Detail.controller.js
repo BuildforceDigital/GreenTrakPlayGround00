@@ -130,7 +130,7 @@ sap.ui.define([
 
             const path = oItem.getBindingContext().getPath();
 
-            const subPath = path.substring(path.indexOf("RegHours")).replace("RegHours", "AttendanceEventsAllEntities");
+            const subPath = path.substring(path.indexOf("RegHours")).replace("RegHours", "VAttendanceEventsAllEntities");
 
             oRouter.navTo("Detail2", {
                 invoicePath: window.encodeURIComponent(subPath)
@@ -165,8 +165,8 @@ sap.ui.define([
 
             return new GroupHeaderListItem({
                 tooltip: oGroup.key,
-                title:  `${computeISOweekN(oDate)} ${oDate.toLocaleString('default', { weekday: 'short' })}`,
-                count : "Total: ?h??, approved: 0h00, 0 %"
+                title: `${computeISOweekN(oDate)} ${oDate.toLocaleString('default', {weekday: 'short'})}`,
+                count: "Total: ?h??, approved: 0h00, 0 %"
             })
         },
         computeDuration: function (strDateBeg, strDateEnd) {
