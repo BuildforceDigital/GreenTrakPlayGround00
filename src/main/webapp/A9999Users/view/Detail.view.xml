@@ -25,40 +25,35 @@
                 <items>
                     <IconTabFilter key="personal" text="Personal Info" icon="sap-icon://employee">
                         <HBox justifyContent="SpaceBetween">
-                            <VBox class="sapUiSmallMargin">
-                                <f0:SimpleForm id="personalForm" editable="false"
-                                               title="Personal Info" layout="ResponsiveGridLayout"
-                                               labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
-                                               emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2"
-                                               columnsL="1" columnsM="1" singleContainerFullSize="false"
-                                >
-                                    <f0:content>
-                                        <Label design="Bold" text="User Full Name"/>
+                            <f0:SimpleForm id="personalForm" editable="false"
+                                           title="Personal Info" layout="ResponsiveGridLayout"
+                                           labelSpanM="4" labelSpanS="7" adjustLabelSpan="false" emptySpanXL="0"
+                                           emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2"
+                                           columnsL="1" columnsM="1" singleContainerFullSize="false">
+                                <f0:content>
+                                    <Label design="Bold" text="User Full Name"/>
                                         <Text text="{FullName}"/>
-                                        <Label design="Bold" text="User Nick Name"/>
+                                    <Label design="Bold" text="User Nick Name"/>
                                         <Text text="{Nickname}"/>
-                                        <Label design="Bold" text="Gender"/>
+                                    <Label design="Bold" text="Gender"/>
                                         <Text id="gender"
-                                              text="{= ${Gender} === 'M'?'Male': (${Gender} === 'F'?'Female':'Unknown')}"/>
-                                        <Label design="Bold" text="User Birthday"/>
+                                          text="{= ${Gender} === 'M'?'Male': (${Gender} === 'F'?'Female':'Unknown')}"/>
+                                    <Label design="Bold" text="User Birthday"/>
                                         <Text text="{BirthDay}"/>
-                                        <Label design="Bold" text="Nationality"/>
+                                    <Label design="Bold" text="Nationality"/>
                                         <Text text="{Nationality}"/>
-                                        <Label design="Bold" text="Citizen Service Number"/>
+                                    <Label design="Bold" text="Citizen Service Number"/>
                                         <Text text="{CitizenServiceNr}"/>
-                                        <Label design="Bold" text="Validity Ends"/>
+                                    <Label design="Bold" text="Validity Ends"/>
                                         <Text text="{TillDate}"/>
-                                    </f0:content>
-                                </f0:SimpleForm>
-                            </VBox>
-                            <VBox>
+                                </f0:content>
+                            </f0:SimpleForm>
 
-                                <Text id="detailsActiveImage" text="Active state image:" class="sapUiSmallMarginBottom"/>
-                                <Image ariaDetails="detailsActiveImage" src="{UserImage}"
-                                       width="170px"
-                                       decorative="false"
-                                       press=".handleImage3Press"/>
-                            </VBox>
+                            <Image ariaDetails="detailsActiveImage" src="{UserImage}"
+                                   width="170px"
+                                   decorative="false"
+                                   press=".handleImage3Press"/>
+
                         </HBox>
                     </IconTabFilter>
                     <IconTabFilter key="contact" text="Contact Info" icon="sap-icon://contacts">
