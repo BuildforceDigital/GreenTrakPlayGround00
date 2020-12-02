@@ -17,7 +17,6 @@ public class VAttendanceEventsAllEntity {
     @Convert(converter = UUIDAttributeConverter.class)
     private UUID userID;
 
-    @Id
     @Column(name = "\"Version\"")
     private Integer version;
 
@@ -50,9 +49,8 @@ public class VAttendanceEventsAllEntity {
     @Column(name = "\"Description\"", length = 160) private String description;
     @Column(name = "\"ProjectCode\"", nullable = false, length = 10) private String projectCode;
 
-    @Column(name = "\"ProjOwner\"", nullable = false)
-    @Convert(converter = UUIDAttributeConverter.class)
-    private UUID projOwner;
+    @Column(name = "\"FullProjOwner\"", nullable = false)
+    private String fullProjOwner;
 
     @Column(name = "\"Remarks\"", length = 480) private String remarks;
 
@@ -126,12 +124,12 @@ public class VAttendanceEventsAllEntity {
         this.projectCode = projectCode;
     }
 
-    public UUID getProjOwner() {
-        return projOwner;
+    public String getFullProjOwner() {
+        return fullProjOwner;
     }
 
-    public void setProjOwner(UUID projOwner) {
-        this.projOwner = projOwner;
+    public void setProjOwner(String projOwner) {
+        this.fullProjOwner = projOwner;
     }
 
     public String getRemarks() {

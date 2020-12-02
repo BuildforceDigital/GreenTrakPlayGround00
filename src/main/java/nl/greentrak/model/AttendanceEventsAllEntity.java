@@ -8,9 +8,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinColumns;
 import org.eclipse.persistence.annotations.IdValidation;
 import org.eclipse.persistence.annotations.PrimaryKey;
-//import realdeal.model.A0000UsersEntity;
 
 import java.time.OffsetDateTime;
 import java.util.UUID;

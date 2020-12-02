@@ -24,28 +24,31 @@
             <IconTabBar id="empIconTabBar" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding">
                 <items>
                     <IconTabFilter key="personal" text="Personal Info" icon="sap-icon://employee">
-                        <HBox justifyContent="SpaceBetween">
+                        <HBox class="sapUiSmallMargin" justifyContent="SpaceBetween">
                             <f0:SimpleForm id="personalForm" editable="false"
-                                           title="Personal Info" layout="ResponsiveGridLayout"
-                                           labelSpanM="4" labelSpanS="7" adjustLabelSpan="false" emptySpanXL="0"
-                                           emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2"
-                                           columnsL="1" columnsM="1" singleContainerFullSize="false">
+                                           title="Personal Info"
+                                           adjustLabelSpan="false"
+                                           columnsL="1" columnsM="1" columnsXL="2"
+                                           emptySpanL="4" emptySpanM="4" emptySpanS="0" emptySpanXL="0"
+                                           labelSpanM="4" labelSpanS="7" labelSpanL="3" labelSpanXL="3"
+                                           layout="ResponsiveGridLayout"
+                                           singleContainerFullSize="false">
                                 <f0:content>
                                     <Label design="Bold" text="User Full Name"/>
-                                        <Text text="{FullName}"/>
+                                    <Text text="{FullName}"/>
                                     <Label design="Bold" text="User Nick Name"/>
-                                        <Text text="{Nickname}"/>
+                                    <Text text="{Nickname}"/>
                                     <Label design="Bold" text="Gender"/>
-                                        <Text id="gender"
+                                    <Text id="gender"
                                           text="{= ${Gender} === 'M'?'Male': (${Gender} === 'F'?'Female':'Unknown')}"/>
                                     <Label design="Bold" text="User Birthday"/>
-                                        <Text text="{BirthDay}"/>
+                                    <Text text="{BirthDay}"/>
                                     <Label design="Bold" text="Nationality"/>
-                                        <Text text="{Nationality}"/>
+                                    <Text text="{Nationality}"/>
                                     <Label design="Bold" text="Citizen Service Number"/>
-                                        <Text text="{CitizenServiceNr}"/>
+                                    <Text text="{CitizenServiceNr}"/>
                                     <Label design="Bold" text="Validity Ends"/>
-                                        <Text text="{TillDate}"/>
+                                    <Text text="{TillDate}"/>
                                 </f0:content>
                             </f0:SimpleForm>
 
@@ -82,7 +85,7 @@
                                    items="{ path: 'RegHours',
                                    templateShareable: false,
                                    parameters: { $select:['AggStartDate'], $orderby : 'CheckInDateTime desc' },
-                                   sorter: [{ descending: true, path: 'AggStartDate', group : true }],
+                                   sorter: [{ descending: true, path: ['AggStartDate'], group : true }],
                                    groupHeaderFactory: '.groupHeaderFactory'}"
                                    itemPress=".onItemPressed">
                                 <headerToolbar>

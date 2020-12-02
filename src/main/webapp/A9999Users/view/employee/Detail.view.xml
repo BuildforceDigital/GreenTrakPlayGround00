@@ -39,8 +39,8 @@
                     text="{remoteOData>TermGuidIn}"/>
 
             <ObjectAttribute
-                    title="ProjOwner"
-                    text="{remoteOData>ProjOwner}"/>
+                    title="FullProjOwner"
+                    text="{remoteOData>FullProjOwner}"/>
 
             <ObjectAttribute
                     title="TermGuidOut"

@@ -1,7 +1,7 @@
 -- SET schema "DEV_GREENTRAK00";
 create schema DEV_GREENTRAK00;
 
-create table DEV_GREENTRAK00.A0000USERS (
+create table DEV_GREENTRAK00.PROFILES (
                                        ID                 LONGVARBINARY,
                                        "BirthDay"         varchar(36),
                                        "BusinessEmail"    varchar(10),
@@ -19,14 +19,14 @@ create table DEV_GREENTRAK00.A0000USERS (
                                        "UserImage"        varchar(40),
                                        PRIMARY KEY (ID));
 
-INSERT INTO DEV_GREENTRAK00.A0000USERS VALUES ('04a47a9852374cc8b2fac629bd8f019e', 'Bd', 'Be', 'Csnr', 'TestActor05', 'M', 'Jf', 'lp', 'mp', 'nat', 'Jan',    'pe', '2020-05-01', 'us', null);
-INSERT INTO DEV_GREENTRAK00.A0000USERS VALUES ('4e65220e9332442eb0bcd1b5b16c1db8', 'Bd', 'Be', 'Csnr', 'Fn1', 'M', 'Jf', 'lp', 'mp', 'nat', 'Jan',    'pe', '2020-05-01', 'us', null);
-INSERT INTO DEV_GREENTRAK00.A0000USERS VALUES ('9dfa89d32387455ebe800ed77c200fa3', 'Bd', 'Be', 'Csnr', 'Fn2', 'M', 'Jf', 'lp', 'mp', 'nat', 'Piet',   'pe', '2020-05-01', 'us', null);
-INSERT INTO DEV_GREENTRAK00.A0000USERS VALUES ('a7de5d729e0343419e7da348aaa8eac2', 'Bd', 'Be', 'Csnr', 'Fn3', 'M', 'Jf', 'lp', 'mp', 'nat', 'Klaas',  'pe', '2020-05-01', 'us', null);
-INSERT INTO DEV_GREENTRAK00.A0000USERS VALUES ('caa70247ad7c4b688949edec7e879ae2', 'Bd', 'Be', 'Csnr', 'Fn4', 'M', 'Jf', 'lp', 'mp', 'nat', 'Willem', 'pe', '2020-05-01', 'us', null);
-INSERT INTO DEV_GREENTRAK00.A0000USERS VALUES ('f2a3b1deee884b2885729d6afc856116', 'Bd', 'Be', 'Csnr', 'Anita Fullname', 'F', 'Jf', 'lp', 'mp', 'nat', 'Anita',  'pe', '2020-05-01', 'Anniet', '../media/Woman_avatar_02.png');
-INSERT INTO DEV_GREENTRAK00.A0000USERS VALUES ('f0a3b1deee884b2885729d6afc856116', 'Bd', 'Be', 'Csnr', 'WH&FF Pvt Ltd', 'F', 'Jf', 'lp', 'mp', 'nat', 'WH&FF',  'pe', '2020-05-01', 'us', null);
-INSERT INTO DEV_GREENTRAK00.A0000USERS VALUES ('f1a3b1deee884b2885729d6afc856116', 'Bd', 'Be', 'Csnr', 'Heijmans Infra bv', 'F', 'Jf', 'lp', 'mp', 'nat', 'Heijmans Infra',  'pe', '2020-05-01', 'us', null);
+INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('04a47a9852374cc8b2fac629bd8f019e', 'Bd', 'Be', 'Csnr', 'TestActor05', 'M', 'Jf', 'lp', 'mp', 'nat', 'Jan',    'pe', '2020-05-01', 'us', null);
+INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('4e65220e9332442eb0bcd1b5b16c1db8', 'Bd', 'Be', 'Csnr', 'Fn1', 'M', 'Jf', 'lp', 'mp', 'nat', 'Jan',    'pe', '2020-05-01', 'us', null);
+INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('9dfa89d32387455ebe800ed77c200fa3', 'Bd', 'Be', 'Csnr', 'Fn2', 'M', 'Jf', 'lp', 'mp', 'nat', 'Piet',   'pe', '2020-05-01', 'us', null);
+INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('a7de5d729e0343419e7da348aaa8eac2', 'Bd', 'Be', 'Csnr', 'Fn3', 'M', 'Jf', 'lp', 'mp', 'nat', 'Klaas',  'pe', '2020-05-01', 'us', null);
+INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('caa70247ad7c4b688949edec7e879ae2', 'Bd', 'Be', 'Csnr', 'Fn4', 'M', 'Jf', 'lp', 'mp', 'nat', 'Willem', 'pe', '2020-05-01', 'us', null);
+INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('f2a3b1deee884b2885729d6afc856116', 'Bd', 'Be', 'Csnr', 'Anita Fullname', 'F', 'Jf', 'lp', 'mp', 'nat', 'Anita',  'pe', '2020-05-01', 'Anniet', '../media/Woman_avatar_02.png');
+INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('f0a3b1deee884b2885729d6afc856116', 'Bd', 'Be', 'Csnr', 'WH&FF Pvt Ltd', 'F', 'Jf', 'lp', 'mp', 'nat', 'WH&FF',  'pe', '2020-05-01', 'us', null);
+INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('f1a3b1deee884b2885729d6afc856116', 'Bd', 'Be', 'Csnr', 'Heijmans Infra bv', 'F', 'Jf', 'lp', 'mp', 'nat', 'Heijmans Infra',  'pe', '2020-05-01', 'us', null);
 
 CREATE TABLE DEV_GREENTRAK00."AttendanceEventsAll"
 (
@@ -64,12 +64,12 @@ INSERT INTO DEV_GREENTRAK00."AttendanceEventsAll"("Version", "CheckInDateTime", 
 INSERT INTO DEV_GREENTRAK00."AttendanceEventsAll"("Version", "CheckInDateTime", "ProjOwner", "ProjectCode", "TermGuidIn", "UserID", "AggApprTime", "AggStartDate", "AggTotalTime", "ApprovalBy", "ApprovalDateTime", "CheckOutDateTime", "Description", "Remarks", "TermGuidOut") VALUES (1, '2020-05-16 13:42:54+02:00', 'f1a3b1deee884b2885729d6afc856116', 'PRUTSERIJ0', 'TERMINAL0000003', x'F2A3B1DEEE884B2885729D6AFC856116', 'AggApprTime', '2020-05-16', 'AggTotalTime', 'FvdB',     '2020-05-16 17:42:54+02:00', '2020-05-16 16:22:54+01:00', 'Tieback poured', null, 'TERMINAL0000001');
 */
 
-ALTER TABLE DEV_GREENTRAK00."AttendanceEventsAll" ADD CONSTRAINT "FK_AttendanceEventsAll_UserID" FOREIGN KEY ("UserID") REFERENCES DEV_GREENTRAK00.A0000USERS (ID);
+ALTER TABLE DEV_GREENTRAK00."AttendanceEventsAll" ADD CONSTRAINT "FK_AttendanceEventsAll_UserID" FOREIGN KEY ("UserID") REFERENCES DEV_GREENTRAK00.PROFILES (ID);
 
 CREATE VIEW DEV_GREENTRAK00."VAttendanceEventsAll"
             ("Version",
              "CheckInDateTime",
-             "ProjOwner",
+             "FullProjOwner",
              "ProjectCode",
              "TermGuidIn",
              "UserID",
@@ -87,7 +87,7 @@ CREATE VIEW DEV_GREENTRAK00."VAttendanceEventsAll"
 as
 SELECT T1."Version",
        T1."CheckInDateTime",
-       T1."ProjOwner",
+       (select T3."FullName" from DEV_GREENTRAK00.PROFILES T3 where T3.ID = T1."ProjOwner"),
        T1."ProjectCode",
        T1."TermGuidIn",
        T1."UserID",
@@ -103,7 +103,7 @@ SELECT T1."Version",
        T1."Remarks",
        T1."TermGuidOut"
 FROM DEV_GREENTRAK00."AttendanceEventsAll" T1,
-     DEV_GREENTRAK00.A0000USERS T2,
+     DEV_GREENTRAK00.PROFILES T2,
      (SELECT T0."CheckInDateTime" CIDT, MAX(T0."Version") VERSION, T0."UserID" UID
       FROM DEV_GREENTRAK00."AttendanceEventsAll" T0
       GROUP BY T0."CheckInDateTime", T0."UserID") T3
