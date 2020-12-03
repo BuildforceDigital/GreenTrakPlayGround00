@@ -13,8 +13,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "PROFILES", schema = "DEV_GREENTRAK00")
-public class A0000UsersEntity {
-    public A0000UsersEntity() {
+public class ProfilesEntity {
+    public ProfilesEntity() {
     }
 
     @Id

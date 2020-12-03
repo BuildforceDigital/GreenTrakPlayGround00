@@ -8,7 +8,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinColumns;
 import org.eclipse.persistence.annotations.IdValidation;
 import org.eclipse.persistence.annotations.PrimaryKey;
 
@@ -39,17 +38,17 @@ public class AttendanceEventsAllEntity {
     @Column(name = "\"ApprovalBy\"", length = 40)
     private String approvalBy;
 
-    public A0000UsersEntity getAttendanceEventsAll_UserID() {
+    public ProfilesEntity getAttendanceEventsAll_UserID() {
         return attendanceEventsAll_UserID;
     }
 
-    public void setAttendanceEventsAll_UserID(A0000UsersEntity attendanceEventsAll_UserID) {
+    public void setAttendanceEventsAll_UserID(ProfilesEntity attendanceEventsAll_UserID) {
         this.attendanceEventsAll_UserID = attendanceEventsAll_UserID;
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "\"UserID\"", nullable = false, insertable = false, updatable = false)
-    private A0000UsersEntity attendanceEventsAll_UserID;
+    private ProfilesEntity attendanceEventsAll_UserID;
 
     @Column(name = "\"CheckOutDateTime\"")
     private OffsetDateTime checkOutDateTime;
