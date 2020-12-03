@@ -38,6 +38,7 @@ public class AttendanceEventsAllEntity {
     @Column(name = "\"ApprovalBy\"", length = 40)
     private String approvalBy;
 
+/*
     public ProfilesEntity getAttendanceEventsAll_UserID() {
         return attendanceEventsAll_UserID;
     }
@@ -49,6 +50,7 @@ public class AttendanceEventsAllEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "\"UserID\"", nullable = false, insertable = false, updatable = false)
     private ProfilesEntity attendanceEventsAll_UserID;
+*/
 
     @Column(name = "\"CheckOutDateTime\"")
     private OffsetDateTime checkOutDateTime;

@@ -31,16 +31,16 @@ public class VAttendanceEventsAllEntity {
     private String approvalBy;
 
     public ProfilesEntity getAttendanceEventsAll_UserID() {
-        return attendanceEventsAll_UserID;
+        return vAttendanceEventsAll_UserID;
     }
 
     public void setAttendanceEventsAll_UserID(ProfilesEntity attendanceEventsAll_UserID) {
-        this.attendanceEventsAll_UserID = attendanceEventsAll_UserID;
+        this.vAttendanceEventsAll_UserID = attendanceEventsAll_UserID;
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "\"UserID\"", nullable = false, insertable = false, updatable = false)
-    private ProfilesEntity attendanceEventsAll_UserID;
+    private ProfilesEntity vAttendanceEventsAll_UserID;
 
     @Column(name = "\"CheckOutDateTime\"")
     private OffsetDateTime checkOutDateTime;
