@@ -7,7 +7,7 @@ sap.ui.define([
 ], function (Controller, History, MessageToast, JSONModel, UIComponent) {
     "use strict";
 
-    return Controller.extend("sap.ui.demo.basicTemplate.controller.employee.Detail", {
+    return Controller.extend("sap.ui.demo.basicTemplate.controller.mDetDetail.Detail", {
 
         onInit: function () {
             //const oViewModel = new JSONModel({ currency: "EUR" });

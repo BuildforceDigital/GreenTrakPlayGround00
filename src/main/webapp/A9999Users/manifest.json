@@ -111,7 +111,7 @@
           "transition": "slide",
           "viewLevel": 2,
           "viewName": "Detail",
-          "viewPath": "sap.ui.demo.basicTemplate.view.employee"
+          "viewPath": "sap.ui.demo.basicTemplate.view.mDetDetail"
         }
       }
     }

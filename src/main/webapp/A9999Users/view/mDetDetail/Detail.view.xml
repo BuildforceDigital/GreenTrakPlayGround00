@@ -1,13 +1,13 @@
 <mvc:View
         xmlns="sap.m"
         xmlns:mvc="sap.ui.core.mvc"
-        controllerName="sap.ui.demo.basicTemplate.controller.employee.Detail">
+        controllerName="sap.ui.demo.basicTemplate.controller.mDetDetail.Detail">
     <!--binding="{/ProductCollection/2}"
     icon="{ProductPicUrl}"-->
     <Page title="Revision"
           showNavButton="true"
           navButtonPress=".onNavBack">
-        <ObjectHeader id="empoh1"
+        <ObjectHeader id="mDetDetail"
                       responsive="true"
                       fullScreenOptimized="true"
 
