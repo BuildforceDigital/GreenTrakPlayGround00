@@ -3,8 +3,12 @@ package nl.greentrak.model;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinColumns;
 import org.eclipse.persistence.annotations.IdValidation;
 import org.eclipse.persistence.annotations.PrimaryKey;
 
@@ -14,14 +18,13 @@ import java.util.UUID;
 @Entity
 @PrimaryKey(validation = IdValidation.NULL)
 @Table(name = "\"AttendanceEventsAll\"", schema = "DEV_GREENTRAK00")
-public class AttendanceEventsAllEntity {
+public class AttendanceEventsAllEntity2 {
 
     @Id
     @Column(name = "\"UserID\"", nullable = false)
     @Convert(converter = UUIDAttributeConverter.class)
     private UUID userID;
 
-    @Id
     @Column(name = "\"Version\"")
     private Integer version;
 
@@ -35,19 +38,6 @@ public class AttendanceEventsAllEntity {
     @Column(name = "\"ApprovalBy\"", length = 40)
     private String approvalBy;
 
-/*
-    public ProfilesEntity getAttendanceEventsAll_UserID() {
-        return attendanceEventsAll_UserID;
-    }
-
-    public void setAttendanceEventsAll_UserID(ProfilesEntity attendanceEventsAll_UserID) {
-        this.attendanceEventsAll_UserID = attendanceEventsAll_UserID;
-    }
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "\"UserID\"", nullable = false, insertable = false, updatable = false)
-    private ProfilesEntity attendanceEventsAll_UserID;
-*/
 
     @Column(name = "\"CheckOutDateTime\"")
     private OffsetDateTime checkOutDateTime;
@@ -80,7 +70,7 @@ public class AttendanceEventsAllEntity {
         this.userID = userID;
     }
 
-    public AttendanceEventsAllEntity() {
+    public AttendanceEventsAllEntity2() {
         // required for JPA
     }
 
@@ -179,5 +169,12 @@ public class AttendanceEventsAllEntity {
     public void setUserName(String userName) {
         this.userName = userName;
     }
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumns({
+            @JoinColumn(name = "\"UserID\"", referencedColumnName = "\"UserID\"", nullable = false, insertable = false, updatable = false),
+            @JoinColumn(name = "\"CheckInDateTime\"", referencedColumnName = "\"CheckInDateTime\"", nullable = false, insertable = false, updatable = false)
+            })
+    private VAttendanceEventsAllEntity attendanceEventsAllEntity2_CompositeKey;
 
 }

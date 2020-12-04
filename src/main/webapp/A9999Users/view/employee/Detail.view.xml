@@ -7,7 +7,7 @@
     <Page title="Revision"
           showNavButton="true"
           navButtonPress=".onNavBack">
-        <ObjectHeader id="oh1"
+        <ObjectHeader id="empoh1"
                       responsive="true"
                       fullScreenOptimized="true"
 
@@ -57,7 +57,7 @@
         </ObjectHeader>
         <VBox class="sapUiSmallMargin">
             <Table id="employeesTable" alternateRowColors="true"
-                   items="{ path: 'remoteOData>/AttendanceEventsAllEntities',
+                   items="{ path: 'remoteOData>/Revisions',
                             sorter: { descending: true, path : 'Version' } }"
                    itemPress=".onItemPressed">
                 <headerToolbar>
