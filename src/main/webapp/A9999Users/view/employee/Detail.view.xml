@@ -13,7 +13,7 @@
 
                       iconAlt="{Name}"
                       intro="Shift approved by {remoteOData>ApprovalBy} at {path: 'remoteOData>ApprovalDateTime', type: 'sap.ui.model.odata.type.DateTimeOffset', formatOptions: {pattern: 'yyyy-MM-dd HH:mm'}}"
-                      title="{remoteOData>UserName}"
+                      title="{remoteOData>UserID}"
                       titleActive="true"
                       titlePress="handleTitlePress"
                       number="{remoteOData>ProjectCode}"
@@ -40,7 +40,7 @@
 
             <ObjectAttribute
                     title="FullProjOwner"
-                    text="{remoteOData>FullProjOwner}"/>
+                    text="remoteOData>FullProjOwner"/>
 
             <ObjectAttribute
                     title="TermGuidOut"

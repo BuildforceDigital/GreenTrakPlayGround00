@@ -130,7 +130,7 @@ sap.ui.define([
 
             const path = oItem.getBindingContext().getPath();
 
-            const subPath = path.substring(path.indexOf("RegHours")).replace("RegHours", "VAttendanceEventsAllEntities");
+            const subPath = path.substring(path.indexOf("RegHours")).replace("RegHours", "AttendanceEventsAllEntity2s");
 
             oRouter.navTo("Detail2", {
                 invoicePath: window.encodeURIComponent(subPath)

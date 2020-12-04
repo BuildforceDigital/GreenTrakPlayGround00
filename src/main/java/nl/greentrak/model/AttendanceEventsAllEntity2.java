@@ -59,8 +59,8 @@ public class AttendanceEventsAllEntity2 {
     @Column(name = "\"TermGuidIn\"", nullable = false, length = 36) private String termGuidIn;
     @Column(name = "\"TermGuidOut\"", length = 36) private String termGuidOut;
 
-    @Column(name = "\"UserName\"", nullable = false, length = 40)
-    private String userName;
+    // @Column(name = "\"UserName\"", nullable = false, length = 40)
+    // private String userName;
 
     public UUID getUserID() {
         return userID;
@@ -162,6 +162,7 @@ public class AttendanceEventsAllEntity2 {
         this.termGuidOut = termGuidOut;
     }
 
+/*
     public String getUserName() {
         return userName;
     }
@@ -169,6 +170,7 @@ public class AttendanceEventsAllEntity2 {
     public void setUserName(String userName) {
         this.userName = userName;
     }
+*/
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumns({
