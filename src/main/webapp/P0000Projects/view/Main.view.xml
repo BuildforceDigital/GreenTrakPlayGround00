@@ -26,7 +26,7 @@
 						parameters: {
 						$count: true, $$updateGroupId : 'UserGroup' } }"
                    mode="SingleSelectLeft"
-                   noDataText="No User found"
+                   noDataText="No project found"
                    select=".onSelection"
                    updateFinished=".onUpdateFinished">
                 <items>

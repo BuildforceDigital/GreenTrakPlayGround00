@@ -180,7 +180,7 @@
                                            emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2"
                                            columnsL="1" columnsM="1" singleContainerFullSize="false">
                                 <f0:content>
-                                    <Label design="Bold" text="User Name"/>
+                                    <Label design="Bold" text="Inlog Name"/>
                                     <!--<Text id="empId" text="{path:'ID',formatter:'.formatNumber'}"/>-->
                                     <Text text="{UserName}"/>
 

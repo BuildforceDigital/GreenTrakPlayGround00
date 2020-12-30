@@ -11,7 +11,7 @@
                 </contentMiddle>
                 <contentRight>
                     <Button id="logoutBtn" tooltip="Logout" icon="sap-icon://log" press="onLogoutPress"/>
-                    <!-- <Button id="displayName" text="User Name" icon="sap-icon://account" press="handlePressOpenMenu"/>-->
+                    <!-- <Button id="displayName" text="Inlog Name" icon="sap-icon://account" press="handlePressOpenMenu"/>-->
                 </contentRight>
             </Bar>
         </customHeader>
@@ -58,7 +58,7 @@
                     </Column>
                     <Column id="column4">
                         <header>
-                            <Label text="User Name" id="label4"/>
+                            <Label text="Inlog Name" id="label4"/>
                         </header>
                     </Column>
                 </columns>

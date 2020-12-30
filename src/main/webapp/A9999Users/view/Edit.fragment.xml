@@ -3,7 +3,7 @@
     <!--<l:HorizontalLayout>-->
     <f:SimpleForm id="empform1" layout="ResponsiveGridLayout" columnsL="4" columnsM="4">
         <f:content>
-            <Label design="Bold" id="euserName" text="User Name" class="createNewUserLabelSpacing" labelFor="euserNameTextField"/>
+            <Label design="Bold" id="euserName" text="Inlog Name" class="createNewUserLabelSpacing" labelFor="euserNameTextField"/>
             <Input id="euserNameTextField" required="true" value="{UserName}" liveChange=".inputChange"/>
 
             <Label design="Bold" id="efullName" text="Full Name" class="createNewUserLabelSpacing" labelFor="efullNameTextField"/>
