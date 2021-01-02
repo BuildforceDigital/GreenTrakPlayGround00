@@ -22,7 +22,7 @@ public class ProfilesEntity {
     @Column(name = "ID")
     private java.util.UUID id;
 
-    @Column(name = "\"BirthDay\"", length = 36)
+    @Column(name = "\"BirthDate\"", length = 36)
     private String birthDay;
 
     @Column(name = "\"BusinessEmail\"", length = 160)
@@ -37,7 +37,7 @@ public class ProfilesEntity {
     @Column(name = "\"Gender\"")
     private String gender;
 
-    @Column(name = "\"JobFunction\"", length = 40)
+    @Column(name = "\"JobTitle\"", length = 40)
     private String jobFunction;
 
     @Column(name = "\"LandlinePhone\"")
@@ -58,7 +58,7 @@ public class ProfilesEntity {
     @Column(name = "\"TillDate\"")
     private java.time.OffsetDateTime tillDate;
 
-    @Column(name = "\"UserImage\"", length = 40)
+    @Column(name = "\"ImageURL\"", length = 40)
     private String userImage;
 
     @Column(name = "\"UserName\"", length = 40)

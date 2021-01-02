@@ -23,7 +23,7 @@
 
             <Label design="Bold" id="estartdate" text="Birth day" class="createNewUserLabelSpacing" labelFor="ebirthdayField"/>
             <DatePicker id="ebirthdayField" displayFormat="long" placeholder="Birth day" change=".inputChange"
-                        value="{BirthDay}"/>
+                        value="{BirthDate}"/>
 
             <Label design="Bold" id="enationality" text="Nationality" class="createNewUserLabelSpacing" labelFor="enationalityTextField"/>
             <Input id="enationalityTextField" value="{Nationality}" liveChange=".inputChange"/>
@@ -32,7 +32,7 @@
             <Input id="ecitizenServiceNrField" value="{CitizenServiceNr}" liveChange=".inputChange"/>
 
             <Label design="Bold" id="ejobFunction" text="Job Function" class="createNewUserLabelSpacing" labelFor="ejobFunctionField"/>
-            <Input id="ejobFunctionField" placeholder="Job Function" value="{JobFunction}" liveChange=".inputChange"/>
+            <Input id="ejobFunctionField" placeholder="Job Function" value="{JobTitle}" liveChange=".inputChange"/>
 
             <Label design="Bold" id="epemail" text="Private Email" class="createNewUserLabelSpacing" labelFor="epemailTextField"/>
             <Input id="epemailTextField" required="true" value="{PrivateEmail}" liveChange=".inputChange"/>

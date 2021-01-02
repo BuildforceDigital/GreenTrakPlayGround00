@@ -42,7 +42,7 @@
                                     <Text id="gender"
                                           text="{= ${Gender} === 'M'?'Male': (${Gender} === 'F'?'Female':'Unknown')}"/>
                                     <Label design="Bold" text="User Birthday"/>
-                                    <Text text="{BirthDay}"/>
+                                    <Text text="{BirthDate}"/>
                                     <Label design="Bold" text="Nationality"/>
                                     <Text text="{Nationality}"/>
                                     <Label design="Bold" text="Citizen Service Number"/>
@@ -52,7 +52,7 @@
                                 </f0:content>
                             </f0:SimpleForm>
 
-                            <Image ariaDetails="detailsActiveImage" src="{UserImage}"
+                            <Image ariaDetails="detailsActiveImage" src="{ImageURL}"
                                    width="170px"
                                    decorative="false"
                                    press=".handleImage3Press"/>
@@ -188,7 +188,7 @@
                                     <Text text="OrdinaryUser"/>
                                     <!--<Text text="{SystemRole}"/>-->
                                     <Label design="Bold" text="Job Function"/>
-                                    <Text text="{JobFunction}"/>
+                                    <Text text="{JobTitle}"/>
                                 </f0:content>
                             </f0:SimpleForm>
                         </VBox>

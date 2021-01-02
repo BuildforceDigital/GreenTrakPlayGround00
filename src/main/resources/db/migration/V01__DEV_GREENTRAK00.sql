@@ -3,12 +3,12 @@ create schema DEV_GREENTRAK00;
 
 create table DEV_GREENTRAK00.PROFILES (
                                        ID                 LONGVARBINARY,
-                                       "BirthDay"         varchar(36),
+                                       "BirthDate"        varchar(36),
                                        "BusinessEmail"    varchar(10),
                                        "CitizenServiceNr" varchar(36),
                                        "FullName"         varchar(40),
                                        "Gender"           varchar(10),
-                                       "JobFunction"      varchar(36),
+                                       "JobTitle"         varchar(36),
                                        "LandlinePhone"    varchar(40),
                                        "MobilePhone"      varchar(40),
                                        "Nationality"      varchar(40),
@@ -16,17 +16,21 @@ create table DEV_GREENTRAK00.PROFILES (
                                        "PrivateEmail"     varchar(40),
                                        "TillDate"         TIMESTAMP WITH TIME ZONE,
                                        "UserName"         varchar(40),
-                                       "UserImage"        varchar(40),
+                                       "ImageURL"         varchar(40),
+                                       "Organization"     LONGVARBINARY,
                                        PRIMARY KEY (ID));
 
-INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('04a47a9852374cc8b2fac629bd8f019e', 'Bd', 'Be', 'Csnr', 'TestActor05', 'M', 'Jf', 'lp', 'mp', 'nat', 'Jan',    'pe', '2020-05-01', 'us', null);
-INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('4e65220e9332442eb0bcd1b5b16c1db8', 'Bd', 'Be', 'Csnr', 'Fn1', 'M', 'Jf', 'lp', 'mp', 'nat', 'Jan',    'pe', '2020-05-01', 'us', null);
-INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('9dfa89d32387455ebe800ed77c200fa3', 'Bd', 'Be', 'Csnr', 'Fn2', 'M', 'Jf', 'lp', 'mp', 'nat', 'Piet',   'pe', '2020-05-01', 'us', null);
-INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('a7de5d729e0343419e7da348aaa8eac2', 'Bd', 'Be', 'Csnr', 'Fn3', 'M', 'Jf', 'lp', 'mp', 'nat', 'Klaas',  'pe', '2020-05-01', 'us', null);
-INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('caa70247ad7c4b688949edec7e879ae2', 'Bd', 'Be', 'Csnr', 'Fn4', 'M', 'Jf', 'lp', 'mp', 'nat', 'Willem', 'pe', '2020-05-01', 'us', null);
-INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('f2a3b1deee884b2885729d6afc856116', 'Bd', 'Be', 'Csnr', 'Anita Fullname', 'F', 'Jf', 'lp', 'mp', 'nat', 'Anita',  'pe', '2020-05-01', 'Anniet', '../media/Woman_avatar_02.png');
-INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('f0a3b1deee884b2885729d6afc856116', 'Bd', 'Be', 'Csnr', 'WH&FF Pvt Ltd', 'F', 'Jf', 'lp', 'mp', 'nat', 'WH&FF',  'pe', '2020-05-01', 'us', null);
-INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('f1a3b1deee884b2885729d6afc856116', 'Bd', 'Be', 'Csnr', 'Heijmans Infra bv', 'F', 'Jf', 'lp', 'mp', 'nat', 'Heijmans Infra',  'pe', '2020-05-01', 'us', null);
+INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('04a47a9852374cc8b2fac629bd8f019e', 'Bd', 'Be', 'Csnr', 'TestActor05', 'M', 'Jf', 'lp', 'mp', 'nat', 'Jan',    'pe', '2020-05-01', 'us', null, null);
+INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('4e65220e9332442eb0bcd1b5b16c1db8', 'Bd', 'Be', 'Csnr', 'Fn1', 'M', 'Jf', 'lp', 'mp', 'nat', 'Jan',    'pe', '2020-05-01', 'us', null, null);
+INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('9dfa89d32387455ebe800ed77c200fa3', 'Bd', 'Be', 'Csnr', 'Fn2', 'M', 'Jf', 'lp', 'mp', 'nat', 'Piet',   'pe', '2020-05-01', 'us', null, null);
+INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('a7de5d729e0343419e7da348aaa8eac2', 'Bd', 'Be', 'Csnr', 'Fn3', 'M', 'Jf', 'lp', 'mp', 'nat', 'Klaas',  'pe', '2020-05-01', 'us', null, null);
+INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('caa70247ad7c4b688949edec7e879ae2', 'Bd', 'Be', 'Csnr', 'Fn4', 'M', 'Jf', 'lp', 'mp', 'nat', 'Willem', 'pe', '2020-05-01', 'us', null, null);
+INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('f2a3b1deee884b2885729d6afc856116', 'Bd', 'Be', 'Csnr', 'Anita Fullname', 'F', 'Jf', 'lp', 'mp', 'nat', 'Anita',  'pe', '2020-05-01', 'Anniet', '../media/Woman_avatar_02.png', 'f1a3b1deee884b2885729d6afc856116');
+INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('f0a3b1deee884b2885729d6afc856116', 'Bd', 'Be', 'Csnr', 'WH&FF Pvt Ltd', 'F', 'Jf', 'lp', 'mp', 'nat', 'WH&FF',  'pe', '2020-05-01', 'us', null, null);
+INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('f1a3b1deee884b2885729d6afc856116', 'Bd', 'Be', 'Csnr', 'Heijmans Infra bv', 'F', 'Jf', 'lp', 'mp', 'nat', 'Heijmans Infra',  'pe', '2020-05-01', 'us', null, null);
+
+ALTER TABLE DEV_GREENTRAK00.PROFILES ADD CONSTRAINT "FK_PRF " FOREIGN KEY ("Organization") REFERENCES DEV_GREENTRAK00.PROFILES (ID);
+
 
 CREATE TABLE DEV_GREENTRAK00."AttendanceEventsAll"
 (
