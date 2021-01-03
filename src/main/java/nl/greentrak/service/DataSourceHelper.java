@@ -9,7 +9,7 @@ import org.flywaydb.core.internal.jdbc.DriverDataSource;
 import javax.sql.DataSource;
 
 public class DataSourceHelper {
-    private static final String DB_SCHEMA = "OLINGO";
+    private static final String DB_SCHEMA = "DEV_GREENTRAK00";
 
     // private static final String HSQLDB_URL = "jdbc:hsqldb:mem:com.sample";
     private static final String HSQLDB_URL = "jdbc:hsqldb:file:~/IdeaProjects/Buildforce Digital 00/GreenTrakPlayGround00/GreentrakData/DevoGreentrak00";

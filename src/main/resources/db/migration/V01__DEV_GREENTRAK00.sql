@@ -1,5 +1,5 @@
 -- SET schema "DEV_GREENTRAK00";
-create schema DEV_GREENTRAK00;
+-- create schema DEV_GREENTRAK00;
 
 create table DEV_GREENTRAK00.PROFILES (
                                        ID                 LONGVARBINARY,
@@ -29,7 +29,7 @@ INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('f2a3b1deee884b2885729d6afc856116',
 INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('f0a3b1deee884b2885729d6afc856116', 'Bd', 'Be', 'Csnr', 'WH&FF Pvt Ltd', 'F', 'Jf', 'lp', 'mp', 'nat', 'WH&FF',  'pe', '2020-05-01', 'us', null, null);
 INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('f1a3b1deee884b2885729d6afc856116', 'Bd', 'Be', 'Csnr', 'Heijmans Infra bv', 'F', 'Jf', 'lp', 'mp', 'nat', 'Heijmans Infra',  'pe', '2020-05-01', 'us', null, null);
 
-ALTER TABLE DEV_GREENTRAK00.PROFILES ADD CONSTRAINT "FK_PRF " FOREIGN KEY ("Organization") REFERENCES DEV_GREENTRAK00.PROFILES (ID);
+ALTER TABLE DEV_GREENTRAK00.PROFILES ADD CONSTRAINT FK_Profiles_Organization FOREIGN KEY ("Organization") REFERENCES DEV_GREENTRAK00.PROFILES (ID);
 
 
 CREATE TABLE DEV_GREENTRAK00."AttendanceEventsAll"
