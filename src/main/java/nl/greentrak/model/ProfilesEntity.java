@@ -11,14 +11,17 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
-@Table(name = "PROFILES", schema = "DEV_GREENTRAK00", catalog = "PUBLIC")
+@Table(name = "PROFILES", schema = "DEV_GREENTRAK00")
 public class ProfilesEntity {
-    private java.util.UUID id;
+    private UUID id;
     private String birthDate;
     private String businessEmail;
     private String citizenServiceNr;
@@ -30,25 +33,28 @@ public class ProfilesEntity {
     private String nationality;
     private String nickname;
     private String privateEmail;
-    private java.time.OffsetDateTime tillDate;
+    private OffsetDateTime tillDate;
     private String userName;
     private String imageUrl;
-    private java.util.UUID organization;
+    private UUID organization;
+    private Collection<AttendanceEventsAllEntity> attendanceEventsAllsById;
     private ProfilesEntity profilesByOrganization;
     private Collection<ProfilesEntity> profilesById;
 
     @Id
     @Column(name = "ID", nullable = false)
-    public java.util.UUID getId() {
+    @Convert(converter = UUIDAttributeConverter.class)
+
+    public UUID getId() {
         return id;
     }
 
-    public void setId(java.util.UUID id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
     @Basic
-    @Column(name = "BirthDate", nullable = true, length = 36)
+    @Column(name = "\"BirthDate\"", nullable = true, length = 36)
     public String getBirthDate() {
         return birthDate;
     }
@@ -58,7 +64,7 @@ public class ProfilesEntity {
     }
 
     @Basic
-    @Column(name = "BusinessEmail", nullable = true, length = 10)
+    @Column(name = "\"BusinessEmail\"", nullable = true, length = 10)
     public String getBusinessEmail() {
         return businessEmail;
     }
@@ -68,7 +74,7 @@ public class ProfilesEntity {
     }
 
     @Basic
-    @Column(name = "CitizenServiceNr", nullable = true, length = 36)
+    @Column(name = "\"CitizenServiceNr\"", nullable = true, length = 36)
     public String getCitizenServiceNr() {
         return citizenServiceNr;
     }
@@ -78,7 +84,7 @@ public class ProfilesEntity {
     }
 
     @Basic
-    @Column(name = "FullName", nullable = true, length = 40)
+    @Column(name = "\"FullName\"", nullable = true, length = 40)
     public String getFullName() {
         return fullName;
     }
@@ -88,7 +94,7 @@ public class ProfilesEntity {
     }
 
     @Basic
-    @Column(name = "Gender", nullable = true, length = 10)
+    @Column(name = "\"Gender\"", nullable = true, length = 10)
     public String getGender() {
         return gender;
     }
@@ -98,7 +104,7 @@ public class ProfilesEntity {
     }
 
     @Basic
-    @Column(name = "JobTitle", nullable = true, length = 36)
+    @Column(name = "\"JobTitle\"", nullable = true, length = 36)
     public String getJobTitle() {
         return jobTitle;
     }
@@ -108,7 +114,7 @@ public class ProfilesEntity {
     }
 
     @Basic
-    @Column(name = "LandlinePhone", nullable = true, length = 40)
+    @Column(name = "\"LandlinePhone\"", nullable = true, length = 40)
     public String getLandlinePhone() {
         return landlinePhone;
     }
@@ -118,7 +124,7 @@ public class ProfilesEntity {
     }
 
     @Basic
-    @Column(name = "MobilePhone", nullable = true, length = 40)
+    @Column(name = "\"MobilePhone\"", nullable = true, length = 40)
     public String getMobilePhone() {
         return mobilePhone;
     }
@@ -128,7 +134,7 @@ public class ProfilesEntity {
     }
 
     @Basic
-    @Column(name = "Nationality", nullable = true, length = 40)
+    @Column(name = "\"Nationality\"", nullable = true, length = 40)
     public String getNationality() {
         return nationality;
     }
@@ -138,7 +144,7 @@ public class ProfilesEntity {
     }
 
     @Basic
-    @Column(name = "Nickname", nullable = true, length = 40)
+    @Column(name = "\"Nickname\"", nullable = true, length = 40)
     public String getNickname() {
         return nickname;
     }
@@ -148,7 +154,7 @@ public class ProfilesEntity {
     }
 
     @Basic
-    @Column(name = "PrivateEmail", nullable = true, length = 40)
+    @Column(name = "\"PrivateEmail\"", nullable = true, length = 40)
     public String getPrivateEmail() {
         return privateEmail;
     }
@@ -158,17 +164,17 @@ public class ProfilesEntity {
     }
 
     @Basic
-    @Column(name = "TillDate", nullable = true)
-    public java.time.OffsetDateTime getTillDate() {
+    @Column(name = "\"TillDate\"", nullable = true)
+    public OffsetDateTime getTillDate() {
         return tillDate;
     }
 
-    public void setTillDate(java.time.OffsetDateTime tillDate) {
+    public void setTillDate(OffsetDateTime tillDate) {
         this.tillDate = tillDate;
     }
 
     @Basic
-    @Column(name = "UserName", nullable = true, length = 40)
+    @Column(name = "\"UserName\"", nullable = true, length = 40)
     public String getUserName() {
         return userName;
     }
@@ -178,7 +184,7 @@ public class ProfilesEntity {
     }
 
     @Basic
-    @Column(name = "ImageURL", nullable = true, length = 40)
+    @Column(name = "\"ImageURL\"", nullable = true, length = 40)
     public String getImageUrl() {
         return imageUrl;
     }
@@ -188,17 +194,77 @@ public class ProfilesEntity {
     }
 
     @Basic
-    @Column(name = "Organization", nullable = true)
-    public java.util.UUID getOrganization() {
+    @Column(name = "\"Organization\"", nullable = true)
+    @Convert(converter = UUIDAttributeConverter.class)
+
+    public UUID getOrganization() {
         return organization;
     }
 
-    public void setOrganization(java.util.UUID organization) {
+    public void setOrganization(UUID organization) {
         this.organization = organization;
     }
 
-    @ManyToOne // (fetch = FetchType.LAZY)
-    @JoinColumn(name = "Organization", referencedColumnName = "ID", insertable = false, updatable = false)
+/*    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ProfilesEntity that = (ProfilesEntity) o;
+
+        if (!Arrays.equals(id, that.id)) return false;
+        if (birthDate != null ? !birthDate.equals(that.birthDate) : that.birthDate != null) return false;
+        if (businessEmail != null ? !businessEmail.equals(that.businessEmail) : that.businessEmail != null) return false;
+        if (citizenServiceNr != null ? !citizenServiceNr.equals(that.citizenServiceNr) : that.citizenServiceNr != null)
+            return false;
+        if (fullName != null ? !fullName.equals(that.fullName) : that.fullName != null) return false;
+        if (gender != null ? !gender.equals(that.gender) : that.gender != null) return false;
+        if (jobTitle != null ? !jobTitle.equals(that.jobTitle) : that.jobTitle != null) return false;
+        if (landlinePhone != null ? !landlinePhone.equals(that.landlinePhone) : that.landlinePhone != null) return false;
+        if (mobilePhone != null ? !mobilePhone.equals(that.mobilePhone) : that.mobilePhone != null) return false;
+        if (nationality != null ? !nationality.equals(that.nationality) : that.nationality != null) return false;
+        if (nickname != null ? !nickname.equals(that.nickname) : that.nickname != null) return false;
+        if (privateEmail != null ? !privateEmail.equals(that.privateEmail) : that.privateEmail != null) return false;
+        if (tillDate != null ? !tillDate.equals(that.tillDate) : that.tillDate != null) return false;
+        if (userName != null ? !userName.equals(that.userName) : that.userName != null) return false;
+        if (imageUrl != null ? !imageUrl.equals(that.imageUrl) : that.imageUrl != null) return false;
+        if (!Arrays.equals(organization, that.organization)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Arrays.hashCode(id);
+        result = 31 * result + (birthDate != null ? birthDate.hashCode() : 0);
+        result = 31 * result + (businessEmail != null ? businessEmail.hashCode() : 0);
+        result = 31 * result + (citizenServiceNr != null ? citizenServiceNr.hashCode() : 0);
+        result = 31 * result + (fullName != null ? fullName.hashCode() : 0);
+        result = 31 * result + (gender != null ? gender.hashCode() : 0);
+        result = 31 * result + (jobTitle != null ? jobTitle.hashCode() : 0);
+        result = 31 * result + (landlinePhone != null ? landlinePhone.hashCode() : 0);
+        result = 31 * result + (mobilePhone != null ? mobilePhone.hashCode() : 0);
+        result = 31 * result + (nationality != null ? nationality.hashCode() : 0);
+        result = 31 * result + (nickname != null ? nickname.hashCode() : 0);
+        result = 31 * result + (privateEmail != null ? privateEmail.hashCode() : 0);
+        result = 31 * result + (tillDate != null ? tillDate.hashCode() : 0);
+        result = 31 * result + (userName != null ? userName.hashCode() : 0);
+        result = 31 * result + (imageUrl != null ? imageUrl.hashCode() : 0);
+        result = 31 * result + Arrays.hashCode(organization);
+        return result;
+    }*/
+
+    @OneToMany(mappedBy = "profilesByUserId")
+    public Collection<AttendanceEventsAllEntity> getAttendanceEventsAllsById() {
+        return attendanceEventsAllsById;
+    }
+
+    public void setAttendanceEventsAllsById(Collection<AttendanceEventsAllEntity> attendanceEventsAllsById) {
+        this.attendanceEventsAllsById = attendanceEventsAllsById;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "\"Organization\"", referencedColumnName = "ID", insertable = false, updatable = false)
     public ProfilesEntity getProfilesByOrganization() {
         return profilesByOrganization;
     }

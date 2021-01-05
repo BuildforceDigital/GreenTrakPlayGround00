@@ -31,7 +31,6 @@ INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('f1a3b1deee884b2885729d6afc856116',
 
 ALTER TABLE DEV_GREENTRAK00.PROFILES ADD CONSTRAINT FK_Profiles_Organization FOREIGN KEY ("Organization") REFERENCES DEV_GREENTRAK00.PROFILES (ID);
 
-
 CREATE TABLE DEV_GREENTRAK00."AttendanceEventsAll"
 (
     "Version"          INTEGER       NOT NULL,
@@ -70,6 +69,7 @@ INSERT INTO DEV_GREENTRAK00."AttendanceEventsAll"("Version", "CheckInDateTime", 
 
 ALTER TABLE DEV_GREENTRAK00."AttendanceEventsAll" ADD CONSTRAINT "FK_AttendanceEventsAll_UserID" FOREIGN KEY ("UserID") REFERENCES DEV_GREENTRAK00.PROFILES (ID);
 
+/*
 CREATE VIEW DEV_GREENTRAK00."VAttendanceEventsAll"
             ("Version",
              "CheckInDateTime",
@@ -113,6 +113,7 @@ FROM DEV_GREENTRAK00."AttendanceEventsAll" T1,
       GROUP BY T0."CheckInDateTime", T0."UserID") T3
 WHERE T1."UserID" = T2.ID
   AND (T1."CheckInDateTime", T1."Version", T1."UserID") = (T3.CIDT, T3.VERSION, T3.UID);
+*/
 
 create table DEV_GREENTRAK00.P0000PROJECTS(
                                               "Id"          INTEGER not null constraint P0000PROJECTS_PK primary key,
@@ -131,3 +132,5 @@ Het opnieuw inrichten van het stationsgebied.');
 
 INSERT INTO DEV_GREENTRAK00.P0000PROJECTS VALUES ( 1, '2020-05-16 12:00:00.000000+02:00', 'PRUTSPLUS0', 'f1a3b1deee884b2885729d6afc856116', 'Pruts Plus',
                                                    'Beschrijving volgt');
+
+ALTER TABLE DEV_GREENTRAK00.P0000PROJECTS ADD CONSTRAINT FK_P0000PROJECTS_Profiles FOREIGN KEY ("ProjOwner") REFERENCES DEV_GREENTRAK00.PROFILES (ID);
