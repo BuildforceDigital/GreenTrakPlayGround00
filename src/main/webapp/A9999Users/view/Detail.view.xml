@@ -52,7 +52,7 @@
                                 </f0:content>
                             </f0:SimpleForm>
 
-                            <Image ariaDetails="detailsActiveImage" src="{ImageURL}"
+                            <Image ariaDetails="detailsActiveImage" src="{ImageUrl}"
                                    width="170px"
                                    decorative="false"
                                    press=".handleImage3Press"/>
@@ -82,7 +82,7 @@
                     <IconTabFilter key="timesheet" text="Timesheet" icon="sap-icon://timesheet">
                         <VBox class="sapUiSmallMargin">
                             <Table id="employeesTable" alternateRowColors="true"
-                                   items="{ path: 'RegHours',
+                                   items="{ path: 'AttendanceEventsAllsById',
                                    templateShareable: false,
                                    parameters: { $select:['AggStartDate'], $orderby : 'CheckInDateTime desc' },
                                    sorter: [{ descending: true, path: ['AggStartDate'], group : true }],

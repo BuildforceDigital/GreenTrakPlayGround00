@@ -5,9 +5,9 @@
              version="2.2">
     <persistence-unit name="GreenTrak00">
         <class>nl.greentrak.model.AttendanceEventsAllEntity</class>
-        <class>nl.greentrak.model.UUIDAttributeConverter</class>
-        <class>nl.greentrak.model.ProfilesEntity</class>
         <class>nl.greentrak.model.P0000ProjectsEntity</class>
+        <class>nl.greentrak.model.ProfilesEntity</class>
+        <class>nl.greentrak.model.UUIDAttributeConverter</class>
 
 
         <!--<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>-->
@@ -22,19 +22,19 @@
 
             <!--
                     <property name="javax.persistence.validation.mode" value="" />
-                    <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:mem:com.sample" />
-                    <property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbc.JDBCDriver" />
             -->
 
+            <property name="eclipselink.application-location" value="C:\Users\FransAdm.LAPTOP-M05O0II\IdeaProjects\Buildforce Digital 00\GreenTrakPlayGround00"/>
             <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
             <property name="eclipselink.ddl-generation.output-mode" value="sql-script"/>
-            <property name="eclipselink.application-location" value="C:\Users\FransAdm.LAPTOP-M05O0II\IdeaProjects\Buildforce Digital 00\GreenTrakPlayGround00"/>
-            <property name="jakarta.persistence.jdbc.url"
-                      value="jdbc:hsqldb:file:~/IdeaProjects/Buildforce Digital 00/GreenTrakPlayGround00/GreentrakData/DevoGreentrak00"/>
-            <property name="jakarta.persistence.jdbc.driver" value="org.hsqldb.jdbc.JDBCDriver"/>
-            <property name="jakarta.jdbc.url"
-                      value="jdbc:hsqldb:file:~/IdeaProjects/Buildforce Digital 00/GreenTrakPlayGround00/GreentrakData/DevoGreentrak00"/>
+<!--
+            <property name="eclipselink.jdbc.driver" value="org.hsqldb.jdbc.JDBCDriver"/>
+            <property name="eclipselink.jdbc.url" value="jdbc:hsqldb:file:~/IdeaProjects/Buildforce Digital 00/GreenTrakPlayGround00/GreentrakData/DevoGreentrak00"/>
+-->
             <property name="jakarta.jdbc.driver" value="org.hsqldb.jdbc.JDBCDriver"/>
+            <property name="jakarta.jdbc.url" value="jdbc:hsqldb:file:~/IdeaProjects/Buildforce Digital 00/GreenTrakPlayGround00/GreentrakData/DevoGreentrak00"/>
+            <property name="jakarta.persistence.jdbc.driver" value="org.hsqldb.jdbc.JDBCDriver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:hsqldb:file:~/IdeaProjects/Buildforce Digital 00/GreenTrakPlayGround00/GreentrakData/DevoGreentrak00"/>
 
         </properties>
 

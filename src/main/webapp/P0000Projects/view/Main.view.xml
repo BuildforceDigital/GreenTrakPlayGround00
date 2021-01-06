@@ -22,7 +22,7 @@
                    growingThreshold="5"
                    growingScrollToLoad="true"
                    includeItemInSelection="false"
-                   items="{ path: 'remoteOData>/P0000ProjectEntities',
+                   items="{ path: 'remoteOData>/P0000ProjectsEntities',
 						parameters: {
 						$count: true, $$updateGroupId : 'UserGroup' } }"
                    mode="SingleSelectLeft"

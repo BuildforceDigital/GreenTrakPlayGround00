@@ -5,13 +5,18 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 import java.time.OffsetDateTime;
-import java.util.Arrays;
 import java.util.UUID;
 
+import org.eclipse.persistence.annotations.IdValidation;
+import org.eclipse.persistence.annotations.PrimaryKey;
+
 @Entity
+@PrimaryKey(validation = IdValidation.NULL)
 @Table(name = "P0000PROJECTS", schema = "DEV_GREENTRAK00")
 public class P0000ProjectsEntity {
     private Integer id;
@@ -20,6 +25,7 @@ public class P0000ProjectsEntity {
     private UUID projOwner;
     private String projectName;
     private String description;
+    private ProfilesEntity profilesByProjOwner;
 
     @Id
     @Column(name = "\"Id\"", nullable = false)
@@ -54,7 +60,6 @@ public class P0000ProjectsEntity {
     @Basic
     @Column(name = "\"ProjOwner\"", nullable = false)
     @Convert(converter = UUIDAttributeConverter.class)
-
     public UUID getProjOwner() {
         return projOwner;
     }
@@ -109,5 +114,16 @@ public class P0000ProjectsEntity {
         result = 31 * result + (projectName != null ? projectName.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
         return result;
-    }*/
+    }
+*/
+    @ManyToOne
+    @JoinColumn(name = "\"ProjOwner\"", referencedColumnName = "ID", nullable = false, insertable = false, updatable = false)
+    public ProfilesEntity getProfilesByProjOwner() {
+        return profilesByProjOwner;
+    }
+
+    public void setProfilesByProjOwner(ProfilesEntity profilesByProjOwner) {
+        this.profilesByProjOwner = profilesByProjOwner;
+    }
+
 }

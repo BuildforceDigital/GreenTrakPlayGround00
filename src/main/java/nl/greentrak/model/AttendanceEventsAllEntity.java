@@ -1,7 +1,6 @@
 package nl.greentrak.model;
 
 import jakarta.persistence.Basic;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
@@ -10,17 +9,16 @@ import jakarta.persistence.Id;
 import jakarta.persistence.IdClass;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+
+import java.time.OffsetDateTime;
+import java.util.UUID;
+
 import org.eclipse.persistence.annotations.IdValidation;
 import org.eclipse.persistence.annotations.PrimaryKey;
 
-import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
-
 @Entity
+@PrimaryKey(validation = IdValidation.NULL)
 @Table(name = "\"AttendanceEventsAll\"", schema = "DEV_GREENTRAK00")
 @IdClass(AttendanceEventsAllEntityPK.class)
 public class AttendanceEventsAllEntity {
@@ -91,7 +89,6 @@ public class AttendanceEventsAllEntity {
     public void setTermGuidIn(String termGuidIn) {
         this.termGuidIn = termGuidIn;
     }
-
 
     @Id
     @Convert(converter = UUIDAttributeConverter.class)
@@ -242,7 +239,7 @@ public class AttendanceEventsAllEntity {
         return result;
     }*/
 
-    @ManyToOne
+    @ManyToOne // (fetch = FetchType.LAZY)
     @JoinColumn(name = "\"UserID\"", referencedColumnName = "ID", nullable = false, insertable = false, updatable = false)
     public ProfilesEntity getProfilesByUserId() {
         return profilesByUserId;
@@ -251,4 +248,5 @@ public class AttendanceEventsAllEntity {
     public void setProfilesByUserId(ProfilesEntity profilesByUserId) {
         this.profilesByUserId = profilesByUserId;
     }
+
 }

@@ -1,11 +1,9 @@
 package nl.greentrak.model;
 
 import jakarta.persistence.Basic;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -13,12 +11,14 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 import java.time.OffsetDateTime;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.UUID;
 
+import org.eclipse.persistence.annotations.IdValidation;
+import org.eclipse.persistence.annotations.PrimaryKey;
+
 @Entity
+@PrimaryKey(validation = IdValidation.NULL)
 @Table(name = "PROFILES", schema = "DEV_GREENTRAK00")
 public class ProfilesEntity {
     private UUID id;
@@ -38,13 +38,13 @@ public class ProfilesEntity {
     private String imageUrl;
     private UUID organization;
     private Collection<AttendanceEventsAllEntity> attendanceEventsAllsById;
+    private Collection<P0000ProjectsEntity> p0000ProjectsById;
     private ProfilesEntity profilesByOrganization;
     private Collection<ProfilesEntity> profilesById;
 
     @Id
     @Column(name = "ID", nullable = false)
     @Convert(converter = UUIDAttributeConverter.class)
-
     public UUID getId() {
         return id;
     }
@@ -196,7 +196,6 @@ public class ProfilesEntity {
     @Basic
     @Column(name = "\"Organization\"", nullable = true)
     @Convert(converter = UUIDAttributeConverter.class)
-
     public UUID getOrganization() {
         return organization;
     }
@@ -263,7 +262,16 @@ public class ProfilesEntity {
         this.attendanceEventsAllsById = attendanceEventsAllsById;
     }
 
-    @ManyToOne
+    @OneToMany(mappedBy = "profilesByProjOwner")
+    public Collection<nl.greentrak.model.P0000ProjectsEntity> getP0000ProjectsById() {
+        return p0000ProjectsById;
+    }
+
+    public void setP0000ProjectsById(Collection<nl.greentrak.model.P0000ProjectsEntity> p0000ProjectsById) {
+        this.p0000ProjectsById = p0000ProjectsById;
+    }
+
+    @ManyToOne // (fetch = FetchType.LAZY)
     @JoinColumn(name = "\"Organization\"", referencedColumnName = "ID", insertable = false, updatable = false)
     public ProfilesEntity getProfilesByOrganization() {
         return profilesByOrganization;
@@ -281,4 +289,5 @@ public class ProfilesEntity {
     public void setProfilesById(Collection<ProfilesEntity> profilesById) {
         this.profilesById = profilesById;
     }
+
 }

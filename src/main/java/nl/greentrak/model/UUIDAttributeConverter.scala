@@ -1,9 +1,9 @@
 package nl.greentrak.model
 
+import jakarta.persistence.{AttributeConverter, Converter}
+
 import java.nio.ByteBuffer
 import java.util.UUID
-
-import jakarta.persistence.{AttributeConverter, Converter}
 
 @Converter
 class UUIDAttributeConverter extends AttributeConverter[UUID, Array[Byte]] {
