@@ -8,6 +8,7 @@
         <class>nl.greentrak.model.P0000ProjectsEntity</class>
         <class>nl.greentrak.model.ProfilesEntity</class>
         <class>nl.greentrak.model.UUIDAttributeConverter</class>
+        <class>nl.greentrak.model.VAttendanceEventsAllEntity</class>
 
 
         <!--<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>-->

@@ -37,7 +37,7 @@ public class ProfilesEntity {
     private String userName;
     private String imageUrl;
     private UUID organization;
-    private Collection<AttendanceEventsAllEntity> attendanceEventsAllsById;
+    private Collection<VAttendanceEventsAllEntity> vAttendanceEventsAllsById;
     private Collection<P0000ProjectsEntity> p0000ProjectsById;
     private ProfilesEntity profilesByOrganization;
     private Collection<ProfilesEntity> profilesById;
@@ -254,12 +254,12 @@ public class ProfilesEntity {
     }*/
 
     @OneToMany(mappedBy = "profilesByUserId")
-    public Collection<AttendanceEventsAllEntity> getAttendanceEventsAllsById() {
-        return attendanceEventsAllsById;
+    public Collection<VAttendanceEventsAllEntity> getVAttendanceEventsAllsById() {
+        return vAttendanceEventsAllsById;
     }
 
-    public void setAttendanceEventsAllsById(Collection<AttendanceEventsAllEntity> attendanceEventsAllsById) {
-        this.attendanceEventsAllsById = attendanceEventsAllsById;
+    public void setVAttendanceEventsAllsById(Collection<VAttendanceEventsAllEntity> vAttendanceEventsAllsById) {
+        this.vAttendanceEventsAllsById = vAttendanceEventsAllsById;
     }
 
     @OneToMany(mappedBy = "profilesByProjOwner")

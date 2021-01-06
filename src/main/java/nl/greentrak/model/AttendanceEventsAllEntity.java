@@ -37,7 +37,7 @@ public class AttendanceEventsAllEntity {
     private String description;
     private String remarks;
     private String termGuidOut;
-    private ProfilesEntity profilesByUserId;
+    // private ProfilesEntity profilesByUserId;
 
     @Id
     @Column(name = "\"Version\"", nullable = false)
@@ -239,7 +239,7 @@ public class AttendanceEventsAllEntity {
         return result;
     }*/
 
-    @ManyToOne // (fetch = FetchType.LAZY)
+ /*   @ManyToOne // (fetch = FetchType.LAZY)
     @JoinColumn(name = "\"UserID\"", referencedColumnName = "ID", nullable = false, insertable = false, updatable = false)
     public ProfilesEntity getProfilesByUserId() {
         return profilesByUserId;
@@ -248,5 +248,5 @@ public class AttendanceEventsAllEntity {
     public void setProfilesByUserId(ProfilesEntity profilesByUserId) {
         this.profilesByUserId = profilesByUserId;
     }
-
+*/
 }

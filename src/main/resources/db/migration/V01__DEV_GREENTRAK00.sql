@@ -25,7 +25,7 @@ INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('4e65220e9332442eb0bcd1b5b16c1db8',
 INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('9dfa89d32387455ebe800ed77c200fa3', 'Bd', 'Be', 'Csnr', 'Fn2', 'M', 'Jf', 'lp', 'mp', 'nat', 'Piet',   'pe', '2020-05-01', 'us', null, null);
 INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('a7de5d729e0343419e7da348aaa8eac2', 'Bd', 'Be', 'Csnr', 'Fn3', 'M', 'Jf', 'lp', 'mp', 'nat', 'Klaas',  'pe', '2020-05-01', 'us', null, null);
 INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('caa70247ad7c4b688949edec7e879ae2', 'Bd', 'Be', 'Csnr', 'Fn4', 'M', 'Jf', 'lp', 'mp', 'nat', 'Willem', 'pe', '2020-05-01', 'us', null, null);
-INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('f2a3b1deee884b2885729d6afc856116', 'Bd', 'Be', 'Csnr', 'Anita Fullname', 'F', 'Jf', 'lp', 'mp', 'nat', 'Anita',  'pe', '2020-05-01', 'Anniet', '../media/Woman_avatar_02.png', 'f1a3b1deee884b2885729d6afc856116');
+INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('f2a3b1deee884b2885729d6afc856116', 'Bd', 'Be', 'Csnr', 'Anita Normalbürger', 'F', 'Jf', 'lp', 'mp', 'nat', 'Anita',  'pe', '2020-05-01', 'Anniet', '../media/Woman_avatar_02.png', 'f1a3b1deee884b2885729d6afc856116');
 INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('f0a3b1deee884b2885729d6afc856116', 'Bd', 'Be', 'Csnr', 'WH&FF Pvt Ltd', 'F', 'Jf', 'lp', 'mp', 'nat', 'WH&FF',  'pe', '2020-05-01', 'us', null, null);
 INSERT INTO DEV_GREENTRAK00.PROFILES VALUES ('f1a3b1deee884b2885729d6afc856116', 'Bd', 'Be', 'Csnr', 'Heijmans Infra bv', 'F', 'Jf', 'lp', 'mp', 'nat', 'Heijmans Infra',  'pe', '2020-05-01', 'us', null, null);
 
@@ -69,7 +69,6 @@ INSERT INTO DEV_GREENTRAK00."AttendanceEventsAll"("Version", "CheckInDateTime", 
 
 ALTER TABLE DEV_GREENTRAK00."AttendanceEventsAll" ADD CONSTRAINT "FK_AttendanceEventsAll_UserID" FOREIGN KEY ("UserID") REFERENCES DEV_GREENTRAK00.PROFILES (ID);
 
-/*
 CREATE VIEW DEV_GREENTRAK00."VAttendanceEventsAll"
             ("Version",
              "CheckInDateTime",
@@ -113,7 +112,6 @@ FROM DEV_GREENTRAK00."AttendanceEventsAll" T1,
       GROUP BY T0."CheckInDateTime", T0."UserID") T3
 WHERE T1."UserID" = T2.ID
   AND (T1."CheckInDateTime", T1."Version", T1."UserID") = (T3.CIDT, T3.VERSION, T3.UID);
-*/
 
 create table DEV_GREENTRAK00.P0000PROJECTS(
                                               "Id"          INTEGER not null constraint P0000PROJECTS_PK primary key,

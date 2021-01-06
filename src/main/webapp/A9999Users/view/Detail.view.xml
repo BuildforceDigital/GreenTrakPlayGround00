@@ -82,7 +82,7 @@
                     <IconTabFilter key="timesheet" text="Timesheet" icon="sap-icon://timesheet">
                         <VBox class="sapUiSmallMargin">
                             <Table id="employeesTable" alternateRowColors="true"
-                                   items="{ path: 'AttendanceEventsAllsById',
+                                   items="{ path: 'VAttendanceEventsAllsById',
                                    templateShareable: false,
                                    parameters: { $select:['AggStartDate'], $orderby : 'CheckInDateTime desc' },
                                    sorter: [{ descending: true, path: ['AggStartDate'], group : true }],
