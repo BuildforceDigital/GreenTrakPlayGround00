@@ -1,5 +1,7 @@
 <Dialog id="createDialog" showHeader="true" title="User Registration Form"
-        xmlns:sap.ui.core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.commons.layout" xmlns="sap.m">
+            xmlns:f="sap.ui.layout.form"
+            xmlns:l="sap.ui.commons.layout"
+            xmlns="sap.m">
     <l:HorizontalLayout>
         <f:SimpleForm
                 columnsL="3" columnsM="3"
@@ -13,7 +15,7 @@
                 <Title text="Basic Information"/>
                 <Label class="createNewUserLabelSpacing"
                        design="Bold"
-                       id="efullName"
+                       id="efullName0"
                        labelFor="efullNameTextField"
                        text="Full Name"/>
                 <Input id="fullNameTextField"
@@ -42,4 +44,4 @@
         <Button id="create" press=".onCreateEmp" text="Create"/>
         <Button id="close" press=".onClose" text="Close"/>
     </buttons>
-</Dialog>
+    </Dialog>

@@ -78,7 +78,7 @@ sap.ui.define([
             let bMessageOpen = false;
             if (!bMessageOpen && aContexts.length) {// Extract and remove the technical messages
                 const aMessages = aContexts.map(function (oContext) {
-                    return oContext.getObject();
+                    return oContext.toString()
                 });
                 sap.ui.getCore().getMessageManager().removeMessages(aMessages);
                 // this._setUIChanges(true);
@@ -139,12 +139,14 @@ sap.ui.define([
 
             const oContext = oList.getBinding("items").create(data);
             // trigger batch request
-            this.getView().getModel().submitBatch("UserGroup");
-            oContext.created().then(function () {
+            // this.getView()
+
+            oContext.getModel().submitBatch("UserGroup").then(function () {
+                //oList.getModel().submitBatch("UserGroup");
                 const dialog = that.getView().byId("createDialog");
                 dialog.close();
                 MessageBox.success("User created: " + oContext.getProperty("UserName"));
-                that._onRefresh()
+                //that._onRefresh()
             });
             // Select and focus the table row that contains the newly created entry
             oList.getItems().some(function (oItem) {

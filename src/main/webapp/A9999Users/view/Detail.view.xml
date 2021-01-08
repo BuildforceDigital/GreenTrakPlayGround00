@@ -14,7 +14,7 @@
                 <contentRight>
                     <OverflowToolbar id="otbFooter">
                         <ToolbarSpacer/>
-                        <OverflowToolbarButton text="Edit" icon="sap-icon://edit" press="onEdit"/>
+                        <OverflowToolbarButton text="Edit" icon="sap-icon://edit" press=".onEdit"/>
                         <OverflowToolbarButton text="Delete" icon="sap-icon://delete" press=".onDelete"/>
                     </OverflowToolbar>
                 </contentRight>
