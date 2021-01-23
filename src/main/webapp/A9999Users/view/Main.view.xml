@@ -71,7 +71,7 @@
                             <Button id="refreshEmployeeButton" icon="sap-icon://refresh"
                                     tooltip="Refresh table"
                                     press="onRefreshPress"/>
-                            <Button id="addEmployeeButton" icon="sap-icon://add" tooltip="Create" press="onCreate">
+                            <Button id="addEmployeeButton" icon="sap-icon://add-employee" tooltip="Create" press="onCreate">
                                 <layoutData>
                                     <OverflowToolbarLayoutData priority="NeverOverflow"/>
                                 </layoutData>

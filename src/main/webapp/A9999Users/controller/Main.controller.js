@@ -6,8 +6,9 @@ sap.ui.define([
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
     "sap/ui/model/FilterType",
-    "sap/ui/model/Sorter"
-], function (formatMessage, MessageBox, MessageToast, Controller, Filter, FilterOperator, FilterType, Sorter) {
+    "sap/ui/model/Sorter",
+    "sap/base/Log"
+], function (formatMessage, MessageBox, MessageToast, Controller, Filter, FilterOperator, FilterType, Sorter, Log) {
     return Controller.extend("sap.ui.demo.basicTemplate.controller.Main", {
         _deleteEmp: function (oSelected) {
             if (oSelected) {
@@ -118,16 +119,17 @@ sap.ui.define([
                 return Math.floor(Math.random() * (max - min) + min)
             }
 
-            function uuid4(a) {
-                return a ? (a ^ Math.random() * 16 >> a / 4).toString(16) : ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, uuid4)
+            function uuidv4() {
+                return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+                    (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+                )
             }
-
 
             //getting input data
             const email = this.getView().byId("epemailTextField").getValue().trim();
             //creating payload
             const data = {
-                "Id": getRandomArbitrary(1000, 2000), //default ID
+                "Id": uuidv4(), //default ID
                 "FullName": this.getView().byId("fullNameTextField").getValue().trim(),
                 "UserName": email,
                 "PrivateEmail": email,
@@ -145,7 +147,9 @@ sap.ui.define([
                 //oList.getModel().submitBatch("UserGroup");
                 const dialog = that.getView().byId("createDialog");
                 dialog.close();
-                MessageBox.success("User created: " + oContext.getProperty("UserName"));
+                MessageToast.show("User created: " + oContext.getProperty("UserName"));
+
+                // MessageBox.success("User created: " + oContext.getProperty("UserName"));
                 //that._onRefresh()
             });
             // Select and focus the table row that contains the newly created entry
