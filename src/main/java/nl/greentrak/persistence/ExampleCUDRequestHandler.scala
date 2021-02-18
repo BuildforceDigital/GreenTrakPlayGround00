@@ -1,8 +1,5 @@
 package nl.greentrak.persistence
 
-import java.lang.reflect.{Constructor, InvocationTargetException}
-import java.{util => ju}
-
 import jakarta.persistence.EntityManager
 import nl.buildforce.olingo.commons.api.http.{HttpMethod, HttpStatusCode}
 import nl.buildforce.sequoia.metadata.core.edm.mapper.api.{JPAAssociationPath, JPAEntityType, JPAStructuredType}
@@ -14,6 +11,8 @@ import nl.buildforce.sequoia.processor.core.exception.{ODataJPAInvocationTargetE
 import nl.buildforce.sequoia.processor.core.modify.JPAUpdateResult
 import nl.buildforce.sequoia.processor.core.processor.{JPAModifyUtil, JPARequestEntity, JPARequestLink}
 
+import java.lang.reflect.{Constructor, InvocationTargetException}
+import java.{util => ju}
 import scala.collection.mutable
 import scala.jdk.CollectionConverters.{ListHasAsScala, MapHasAsScala, SetHasAsScala}
 
@@ -50,12 +49,13 @@ class ExampleCUDRequestHandler() extends JPAAbstractCUDRequestHandler {
 
     val instance = if (requestEntity.getKeys.isEmpty) { // POST an Entity
       val instance0 = createOneEntity(requestEntity, /*em,*/ null)
-      if (Option(em.find(requestEntity.getEntityType.getTypeClass,
-        requestEntity.getModifyUtil.createPrimaryKey(requestEntity.getEntityType, instance0))).isDefined)
+      val primaryKey: AnyRef = requestEntity.getModifyUtil.createPrimaryKey(requestEntity.getEntityType, instance0)
+
+      if (Option(em.find(requestEntity.getEntityType.getTypeClass, primaryKey)).isDefined)
         throw new JPAExampleModifyException(ENTITY_ALREADY_EXISTS, HttpStatusCode.BAD_REQUEST)
       instance0
     }
-    else // POST on Link only // https://issues.oasis-open.org/browse/ODATA-1294
+    else // POST on Link only https://issues.oasis-open.org/browse/ODATA-1294
       findEntity(requestEntity, em)
 
     processRelatedEntities(requestEntity.getRelatedEntities, instance, requestEntity.getModifyUtil, em)

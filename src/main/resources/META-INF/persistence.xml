@@ -4,12 +4,23 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
              version="2.2">
     <persistence-unit name="GreenTrak00">
+
         <class>nl.greentrak.model.AttendanceEventsAllEntity</class>
         <class>nl.greentrak.model.P0000ProjectsEntity</class>
         <class>nl.greentrak.model.ProfilesEntity</class>
-        <class>nl.greentrak.model.UUIDAttributeConverter</class>
+        <class>nl.greentrak.model.UUIDAttributePrimitiveConverter</class>
+        <class>nl.greentrak.model.UUIDAttributeBoxedConverter</class>
         <class>nl.greentrak.model.VAttendanceEventsAllEntity</class>
+        <class>nl.greentrak.model.SimpleIntEntity</class>
+        <class>nl.greentrak.model.SimpleUuidEntity</class>
 
+<!--
+        <class>nl.greentrak.model.UUIDAttributePrimitiveConverterConverter</class>
+        <class>nl.greentrak.model.UUIDAttributeConverter2</class>
+        <class>nl.greentrak.model.SimpleUuidEntity</class>
+        <class>nl.greentrak.model.SimpleIntEntity</class>
+        <class>nl.greentrak.model.ExampleJavaOneFunction</class>
+-->
 
         <!--<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>-->
         <properties>
