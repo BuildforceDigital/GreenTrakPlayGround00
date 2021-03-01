@@ -1,0 +1,111 @@
+{
+	"_version": "1.7.0",
+	"sap.app": {
+		"id": "ditum.ui.kioskKioskApp",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		}
+	},
+
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+
+		]
+	},
+
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "ditum.ui.kioskKioskApp.view.App",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "ditum.ui.kioskKioskApp.i18n.i18n"
+				}
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "ditum.ui.kioskKioskApp.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"async": true
+			},
+			"routes": [{
+				"pattern": "",
+				"name": "ReadNFC",
+				"target": "ReadNFC"
+			}, {
+				"pattern": "result",
+				"name": "ResultNFC",
+				"target": "ResultNFC"
+			}, {
+				"pattern": "confirmation",
+				"name": "ConfirmationView",
+				"target": "ConfirmationView"
+			}],
+			"targets": {
+				"ReadNFC": {
+					"viewType": "XML",
+					"viewName": "ReadNFC",
+					"transition": "flip"
+				},
+				"ResultNFC": {
+					"viewType": "XML",
+					"viewName": "ResultNFC",
+					"transition": "flip"
+				},
+				"ConfirmationView": {
+					"viewType": "XML",
+					"viewName": "ConfirmationView",
+					"transition": "flip"
+				}
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		}
+	}
+}

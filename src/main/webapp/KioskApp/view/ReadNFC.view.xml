@@ -1,0 +1,54 @@
+<mvc:View controllerName="ditum.ui.kioskKioskApp.controller.ReadNFC" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:c="ditum.ui.kioskKioskApp.control">
+	<App>
+		<pages>
+			<Page showHeader="false">
+				<core:Fragment fragmentName="ditum.ui.kioskKioskApp.view.HeaderFragment" type="XML"/>
+				<content>
+					<l:VerticalLayout width="100%">
+						<MessageStrip text="{i18n>msgAnnouncement}" type="Warning" showIcon="true"
+							customIcon="sap-icon://marketing-campaign"></MessageStrip>
+						<l:BlockLayout >
+							<l:BlockLayoutRow>
+								<l:BlockLayoutCell width="1" class="blockDesign">
+									<FlexBox alignItems="Start" justifyContent="Center">
+										<items>
+											<Text class="headingText" text="{i18n>msgWelcomeText}"/>
+										</items>
+									</FlexBox>
+								</l:BlockLayoutCell>
+							</l:BlockLayoutRow>
+							<l:BlockLayoutRow>
+								<l:BlockLayoutCell width="2" class="blockDesign">
+									<Image src="././img/nfc.png" width="500px" height="494px"/>
+								</l:BlockLayoutCell>
+								<l:BlockLayoutCell width="3" class="blockDesign">
+									<FlexBox height="100%" alignItems="Center" justifyContent="Center">
+										<items>
+											<l:VerticalLayout width="100%">
+												<Text id="idTextMsg" text="{i18n>msgReadNFC}" class="bigText"/>
+												<HBox id="idWaitNFC" justifyContent="Center" alignItems="Center" class="sapUiLargeMarginTop">
+													<BusyIndicator customIcon="././img/sign.png" customIconRotationSpeed="1500"/>
+													<BusyIndicator customIcon="././img/sign.png" customIconRotationSpeed="1500"/>
+													<BusyIndicator customIcon="././img/sign.png" customIconRotationSpeed="1500"/>
+													<BusyIndicator customIcon="././img/sign.png" customIconRotationSpeed="1500"/>
+												</HBox>
+												<HBox id="idWaitNFCText" justifyContent="Center" alignItems="Center" class="sapUiSmallMarginTop">
+													<Text class="smallText" text="{i18n>msgWaitNFC}"/>
+												</HBox>
+												<HBox justifyContent="Center" alignItems="Center" class="sapUiSmallMarginTop">
+													<Input id="idPIN" type="Password" maxLength="4" visible="false" width="165px" liveChange="onChangePIN"/>
+												</HBox>
+												<!--<Button text="Start NFC" press="onPressNFC"/>-->
+											</l:VerticalLayout>
+										</items>
+									</FlexBox>
+								</l:BlockLayoutCell>
+							</l:BlockLayoutRow>
+						</l:BlockLayout>
+					</l:VerticalLayout>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

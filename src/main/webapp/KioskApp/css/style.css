@@ -1,0 +1,59 @@
+/* Custom CSS for Kiosk Application */
+
+/*headerbar height*/
+.headerBar.sapMTB {
+    height: 80px;
+}
+
+/*application title*/
+.appTitle {
+    color: #f65425;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/*Big Heading Text*/
+.headingText {
+    color: #000000;
+    font-weight: bold;
+    font-size: 1.55rem;
+}
+
+/*Big Text*/
+.bigText {
+	color: #980000;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+/*Normal Text Red*/
+.normalText {
+	color: #980000;
+    font-size: 1.00rem;
+}
+
+/*Small Text*/
+.smallText {
+	color: #f65425;
+    font-style: italic;
+    font-size: 0.85rem;
+}
+
+/*Input control css*/
+.sapMInputBase {
+    height: 3.65rem;
+}
+.sapMInputBaseInner {
+    font-size: 1.875rem;
+    padding: 1.00rem;
+}
+.sapMInputBase {
+    height: 3.65rem;
+}
+.sapMInputBaseInner::placeholder {
+    font-size: 1.25rem
+}
+input {
+    letter-spacing: 1.00rem;
+    margin-left: 0.6em;
+}
