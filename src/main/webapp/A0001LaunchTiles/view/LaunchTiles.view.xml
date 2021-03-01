@@ -1,0 +1,96 @@
+<mvc:View controllerName="sap.ui.demo.walkthrough.controller.LaunchTiles"
+          displayBlock="true"
+          xmlns="sap.m"
+          xmlns:f="sap.f"
+          xmlns:card="sap.f.cards"
+          xmlns:core="sap.ui.core"
+          xmlns:form="sap.ui.layout.form"
+          xmlns:layout="sap.ui.layout"
+          xmlns:mvc="sap.ui.core.mvc"
+          xmlns:pwd="openui5.password">
+    <NavContainer id="wizardNavContainer" autoFocus="false">
+        <pages>
+            <Page id="wizardBranchingReviewPage" showHeader="false">
+                <content>
+
+                    <Panel>
+                        <ObjectHeader>
+                            <attributes>
+                            </attributes>
+                        </ObjectHeader>
+                        <!-- <layout:VerticalLayout class="sapUiResponsiveMargin">-->
+                        <VBox>
+                            <Title
+                                    titleStyle="H2"
+                                    text="{i18n>startpageTilesGroupTitle}"/>
+                            <layout:HorizontalLayout allowWrapping="true">
+                                <HBox>
+
+                                    <GenericTile
+                                            class="sapUiTinyMarginBegin sapUiTinyMarginTop"
+                                            header="All Organizations" press=".onPress('A9999Users')">
+                                        <tileContent>
+                                            <TileContent>
+                                                <content>
+                                                    <ImageContent src="sap-icon://building"/>
+                                                </content>
+                                            </TileContent>
+                                        </tileContent>
+                                    </GenericTile>
+
+                                    <GenericTile
+                                            class="sapUiTinyMarginBegin sapUiTinyMarginTop"
+                                            header="User Accounts" press=".onPress('A9999Users')">
+                                        <tileContent>
+                                            <TileContent>
+                                                <content>
+                                                    <ImageContent src="sap-icon://account"/>
+                                                </content>
+                                            </TileContent>
+                                        </tileContent>
+                                    </GenericTile>
+
+                                    <GenericTile
+                                            class="sapUiTinyMarginBegin sapUiTinyMarginTop"
+                                            header="Projects" press=".onPress('P0000Projects')">
+                                        <tileContent>
+                                            <TileContent>
+                                                <content>
+                                                    <ImageContent src="sap-icon://project-definition-triangle"/>
+                                                </content>
+                                            </TileContent>
+                                        </tileContent>
+                                    </GenericTile>
+
+                                    <GenericTile
+                                            class="sapUiTinyMarginBegin sapUiTinyMarginTop"
+                                            header="Teams" press=".onPress('A9999Users')">
+                                        <tileContent>
+                                            <TileContent>
+                                                <content>
+                                                    <ImageContent src="sap-icon://collaborate"/>
+                                                </content>
+                                            </TileContent>
+                                        </tileContent>
+                                    </GenericTile>
+
+                                </HBox>
+                            </layout:HorizontalLayout>
+                        </VBox>
+                    </Panel>
+
+
+                </content>
+                <footer>
+
+                    <OverflowToolbar>
+                        <ToolbarSpacer/>
+                        <!--<Button text="Cancel" press=".onWizardCancel" width="20%"/>-->
+                        <Button text="Cancel" width="20%"/>
+                    </OverflowToolbar>
+                </footer>
+            </Page>
+        </pages>
+    </NavContainer>
+
+</mvc:View>

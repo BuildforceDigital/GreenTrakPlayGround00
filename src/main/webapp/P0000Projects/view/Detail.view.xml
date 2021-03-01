@@ -1,0 +1,193 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:f0="sap.ui.layout.form"
+          sId="Detail"
+          xmlns="sap.m" controllerName="sap.ui.demo.basicTemplate.controller.Detail">
+    <Page id="detailPage">
+        <customHeader>
+            <Bar>
+                <contentLeft>
+                    <Button press=".onBack" tooltip="Back" icon="sap-icon://nav-back"/>
+                    <Image src="images/GreenTrakLogo.svg" height="30px"/>
+                </contentLeft>
+                <contentMiddle>
+                    <Label id="header" design="Bold" text="{i18n>title2} {ProjectName}"/>
+                </contentMiddle>
+                <contentRight>
+                    <OverflowToolbar id="otbFooter">
+                        <ToolbarSpacer/>
+                        <OverflowToolbarButton text="Edit" icon="sap-icon://edit" press="onEdit"/>
+                        <OverflowToolbarButton text="Delete" icon="sap-icon://delete" press=".onDelete"/>
+                    </OverflowToolbar>
+                </contentRight>
+            </Bar>
+        </customHeader>
+        <content>
+            <IconTabBar id="empIconTabBar" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding">
+                <items>
+                    <IconTabFilter key="personal" text="Project Info" icon="sap-icon://employee">
+                        <HBox class="sapUiSmallMargin" justifyContent="SpaceBetween">
+                            <!--<f0:SimpleForm id="personalForm" editable="false"
+                                           title="Personal Info"
+                                           adjustLabelSpan="false"
+                                           columnsL="1" columnsM="1" columnsXL="2"
+                                           emptySpanL="4" emptySpanM="4" emptySpanS="0" emptySpanXL="0"
+                                           labelSpanM="4" labelSpanS="7" labelSpanL="3" labelSpanXL="3"
+                                           layout="ResponsiveGridLayout"
+                                           singleContainerFullSize="false">
+                                <f0:content>
+                                    <Label design="Bold" text="Start Date"/>
+                                    <Text text="{StartDate}"/>
+                                    <Label design="Bold" text="Project Code"/>
+                                    <Text text="{ProjectCode}"/>
+                                    <Label design="Bold" text="ProjectName"/>
+                                    <Text text="{ProjectName}"/>
+                                    <Label design="Bold" text="Description"/>
+                                    <Text text="{Description}"/>
+                                </f0:content>
+                            </f0:SimpleForm>-->
+
+                            <!--<Image ariaDetails="detailsActiveImage" src="{ImageURL}"
+                                   width="170px"
+                                   decorative="false"
+                                   press=".handleImage3Press"/>-->
+
+                        </HBox>
+                    </IconTabFilter>
+                    <IconTabFilter key="contact" text="Contact Info" icon="sap-icon://contacts">
+                        <VBox class="sapUiSmallMargin">
+                            <f0:SimpleForm id="contactForm" editable="false" layout="ResponsiveGridLayout"
+                                           title="Contact Info" labelSpanXL="4" labelSpanL="3"
+                                           labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+                                           emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2"
+                                           columnsL="1" columnsM="1" singleContainerFullSize="false">
+                                <f0:content>
+                                    <Label design="Bold" text="User Email ID"/>
+                                    <!--<Text text="{PrivateEmail}"/>-->
+                                    <Label design="Bold" text="Business Email ID"/>
+                                    <!--<Text text="{BusinessEmail}"/>-->
+                                    <Label design="Bold" text="User Mobile Phone Nr"/>
+                                    <!--<Text text="{path:'MobilePhone'}"/>-->
+                                    <Label design="Bold" text="User Landline Phone Nr"/>
+                                    <!--<Text text="{path:'LandlinePhone'}"/>-->
+                                </f0:content>
+                            </f0:SimpleForm>
+                        </VBox>
+                    </IconTabFilter>
+                    <IconTabFilter key="timesheet" text="Project Members" icon="sap-icon://timesheet">
+                        <VBox class="sapUiSmallMargin">
+                            <!--<Table id="employeesTable" alternateRowColors="true"
+                                   items="{ path: 'RegHours',
+                                   templateShareable: false,
+                                   parameters: { $select:['AggStartDate'], $orderby : 'CheckInDateTime desc' },
+                                   sorter: [{ descending: true, path: ['AggStartDate'], group : true }],
+                                   groupHeaderFactory: '.groupHeaderFactory'}"
+                                   itemPress=".onItemPressed">
+                                <headerToolbar>
+                                    <Toolbar>
+                                        <Title text="Attendance events content" level="H2"/>
+                                        <ToolbarSpacer/>
+                                        <DateRangeSelection maxDate="{:= ${appModel>/now}}" change=".handleChange"
+                                                            displayFormat="yyyy-MM-dd" tooltip="View Filter Settings" width="15em"/>
+                                        <Button icon="sap-icon://sort" press=".onSortButtonPressed"/>
+                                    </Toolbar>
+                                </headerToolbar>
+                                <columns>
+                                    <Column id="employeeIDCol">
+                                        <header>
+                                            <Text text="Project Code"/>
+                                        </header>
+                                    </Column>
+                                    <Column id="firstNameCol" hAlign="Right" demandPopin="true">
+                                        <header>
+                                            <Text text="Check-in"/>
+                                        </header>
+                                    </Column>
+                                    <Column id="lastNameCol" hAlign="Right" demandPopin="true">
+                                        <header>
+                                            <Text text="Check-out"/>
+                                        </header>
+                                        <footer>
+                                            <Text text="Totals:"/>
+                                        </footer>
+                                    </Column>
+                                    <Column id="lastNameCol0" hAlign="Right" demandPopin="true">
+                                        <header>
+                                            <Text text="Attended time"/>
+                                        </header>
+                                        <footer>
+                                        </footer>
+                                    </Column>
+                                    <Column id="lastNameCol1" hAlign="Right" demandPopin="true">
+                                        <header>
+                                            <Text text="Time worked"/>
+                                        </header>
+                                        <footer>
+                                        </footer>
+                                    </Column>
+                                    <Column id="addressCol" minScreenWidth="Tablet" demandPopin="true">
+                                        <header>
+                                            <Text text="Description"/>
+                                        </header>
+                                    </Column>
+                                    <Column id="cityCol" minScreenWidth="Tablet" demandPopin="true">
+                                        <header>
+                                            <Text text="Approval by"/>
+                                        </header>
+                                    </Column>
+                                    <Column id="regionCol" minScreenWidth="Tablet" demandPopin="true">
+                                        <header>
+                                            <Text text="Approved at"/>
+                                        </header>
+                                    </Column>
+                                    <Column id="postalCodeCol" minScreenWidth="Tablet" demandPopin="true">
+                                        <header>
+                                            <Text text="Remarks"/>
+                                        </header>
+                                    </Column>
+                                </columns>
+                                <items>
+                                    <ColumnListItem id="item" type="Navigation" press=".onItemPress">
+                                        <cells>
+                                            <Text text="{ProjectCode}"/>
+                                            <Text text="CheckInDateTime"/>
+                                            <Text text="CheckOutDateTime"/>
+                                            <ObjectNumber
+                                                    number="CheckOutDateTime"/>
+                                            <ObjectNumber
+                                                    number="CheckOutDateTime"/>
+                                            <Text text="Description"/>
+                                            <Text text="ApprovalBy"/>
+                                            <Text text="ApprovalDateTime"/>
+                                            <Text text="Remarks"/>
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+                            </Table>-->
+                        </VBox>
+
+                    </IconTabFilter>
+                    <IconTabFilter key="account" text="Peripherals" icon="sap-icon://account">
+                        <VBox class="sapUiSmallMargin">
+                            <f0:SimpleForm id="accountForm" editable="false" layout="ResponsiveGridLayout"
+                                           title="Project Info" labelSpanXL="4" labelSpanL="3"
+                                           labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+                                           emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2"
+                                           columnsL="1" columnsM="1" singleContainerFullSize="false">
+                                <f0:content>
+                                    <Label design="Bold" text="User Name"/>
+                                    <!--<Text id="empId" text="{path:'ID',formatter:'.formatNumber'}"/>-->
+                                    <Text text="{UserName}"/>
+
+                                    <Label design="Bold" text="System Role"/>
+                                    <Text text="OrdinaryUser"/>
+                                    <!--<Text text="{SystemRole}"/>-->
+                                    <Label design="Bold" text="Job Function"/>
+                                    <Text text="{JobTitle}"/>
+                                </f0:content>
+                            </f0:SimpleForm>
+                        </VBox>
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+        </content>
+    </Page>
+</mvc:View>

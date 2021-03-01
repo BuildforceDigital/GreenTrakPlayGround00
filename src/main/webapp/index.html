@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="FvdB" name="author">
+    <meta content="" name="description">
+
+    <title>Title</title>
+</head>
+
+<body>
+<div style="text-align: center;"><h4>You will automatically directed in a second.<br><br></h4>
+
+    <button id="myButton0" class="float-left submit-button">GreenTrak</button>
+    <button id="myButton1" class="float-left submit-button">Metadata</button>
+    <button id="myButton2" class="float-left submit-button">ProfilesEntities</button>
+    <button id="myButton3" class="float-left submit-button">A9999Users</button>
+    <button id="myButton4" class="float-left submit-button">KioskApp</button>
+</div>
+<noscript>
+    <meta http-equiv="refresh" content="1.5; URL=A0001LaunchTiles/index.html "/>
+</noscript>
+<script>
+    const url = "A0001LaunchTiles";
+
+    document.getElementById("myButton0").onclick = function () {
+        location.href = url;
+    };
+
+    document.getElementById("myButton1").onclick = function () {
+        location.href = "ServletPath.svc/$metadata";
+    };
+
+    document.getElementById("myButton2").onclick = function () {
+        location.href = "ServletPath.svc/ProfilesEntities";
+    };
+
+    document.getElementById("myButton3").onclick = function () {
+        location.href = "A9999Users"
+    };
+
+    document.getElementById("myButton4").onclick = function () {
+        location.href = "KioskApp";
+    };
+
+    function sleep(time) {
+        return new Promise((resolve) => setTimeout(resolve, time));
+    }
+
+    sleep(2500).then(() => {
+        window.location.replace(url);
+    });
+</script>
+</body>
