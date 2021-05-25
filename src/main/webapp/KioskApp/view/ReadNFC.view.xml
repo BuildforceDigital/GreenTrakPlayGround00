@@ -1,13 +1,13 @@
 <mvc:View controllerName="ditum.ui.kioskKioskApp.controller.ReadNFC" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
-	displayBlock="true" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:c="ditum.ui.kioskKioskApp.control">
+	displayBlock="true" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:tnt="sap.tnt"
+	xmlns:c="ditum.ui.kioskKioskApp.control">
 	<App>
 		<pages>
 			<Page showHeader="false">
 				<core:Fragment fragmentName="ditum.ui.kioskKioskApp.view.HeaderFragment" type="XML"/>
 				<content>
 					<l:VerticalLayout width="100%">
-						<MessageStrip text="{i18n>msgAnnouncement}" type="Warning" showIcon="true"
-							customIcon="sap-icon://marketing-campaign"></MessageStrip>
+						<core:Fragment fragmentName="ditum.ui.kioskKioskApp.view.AnnouncementFragment" type="XML"/>
 						<l:BlockLayout >
 							<l:BlockLayoutRow>
 								<l:BlockLayoutCell width="1" class="blockDesign">
@@ -19,10 +19,14 @@
 								</l:BlockLayoutCell>
 							</l:BlockLayoutRow>
 							<l:BlockLayoutRow>
-								<l:BlockLayoutCell width="2" class="blockDesign">
-									<Image src="././img/nfc.png" width="500px" height="494px"/>
+								<l:BlockLayoutCell width="1" class="blockDesign">
+									<FlexBox height="100%" alignItems="Center" justifyContent="Center">
+										<items>
+											<Image src="././img/nfc_bg.png"/>
+										</items>
+									</FlexBox>
 								</l:BlockLayoutCell>
-								<l:BlockLayoutCell width="3" class="blockDesign">
+								<l:BlockLayoutCell width="1" class="blockDesign">
 									<FlexBox height="100%" alignItems="Center" justifyContent="Center">
 										<items>
 											<l:VerticalLayout width="100%">
@@ -36,10 +40,9 @@
 												<HBox id="idWaitNFCText" justifyContent="Center" alignItems="Center" class="sapUiSmallMarginTop">
 													<Text class="smallText" text="{i18n>msgWaitNFC}"/>
 												</HBox>
-												<HBox justifyContent="Center" alignItems="Center" class="sapUiSmallMarginTop">
-													<Input id="idPIN" type="Password" maxLength="4" visible="false" width="165px" liveChange="onChangePIN"/>
+												<HBox id="idPIN" justifyContent="Center" alignItems="Center" class="sapUiSmallMarginTop" visible="false">
+													<core:Fragment fragmentName="ditum.ui.kioskKioskApp.view.PINFragment" type="XML"/>
 												</HBox>
-												<!--<Button text="Start NFC" press="onPressNFC"/>-->
 											</l:VerticalLayout>
 										</items>
 									</FlexBox>

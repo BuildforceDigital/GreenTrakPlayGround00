@@ -8,7 +8,7 @@
 			<items>
 				<Avatar src="sap-icon://globe" displaySize="S" showBorder="false" backgroundColor="Transparent"/>
 				<Select id="idLangSelect" forceSelection="false" selectedKey="{langmodel>/defaultkey}"
-					items="{ path: 'langmodel>/languages', sorter: { path: 'langmodel>text' } }" change="onLanguageChange">
+					items="{ path: 'langmodel>/languages', sorter: { path: 'text' } }" change="onLanguageChange">
 					<core:ListItem key="{langmodel>key}" text="{langmodel>text}" icon="{}"/>
 				</Select>
 			</items>

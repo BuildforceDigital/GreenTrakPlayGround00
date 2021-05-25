@@ -1,59 +1,412 @@
 /* Custom CSS for Kiosk Application */
 
+
 /*headerbar height*/
+
 .headerBar.sapMTB {
     height: 80px;
 }
 
+
 /*application title*/
+
 .appTitle {
     color: #f65425;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 
+
 /*Big Heading Text*/
+
 .headingText {
     color: #000000;
     font-weight: bold;
     font-size: 1.55rem;
 }
 
+
 /*Big Text*/
+
 .bigText {
-	color: #980000;
+    color: #980000;
     font-weight: bold;
-    font-size: 1.25rem;
+    font-size: 1.35rem;
 }
 
+
 /*Normal Text Red*/
+
 .normalText {
-	color: #980000;
+    color: #980000;
+    font-size: 1.15rem;
+}
+
+
+/*Small Text*/
+
+.smallText {
+    color: #f65425;
+    font-style: italic;
     font-size: 1.00rem;
 }
 
-/*Small Text*/
-.smallText {
-	color: #f65425;
-    font-style: italic;
-    font-size: 0.85rem;
-}
 
 /*Input control css*/
+
 .sapMInputBase {
     height: 3.65rem;
 }
+
 .sapMInputBaseInner {
     font-size: 1.875rem;
     padding: 1.00rem;
 }
+
 .sapMInputBase {
     height: 3.65rem;
 }
+
 .sapMInputBaseInner::placeholder {
     font-size: 1.25rem
 }
-input {
+
+
+/*Manual Time css*/
+
+.sapUiBlockCellContent {
+    font-size: 1.25rem !important;
+}
+
+.sapMInputBaseIconContainer {
+    display: inline;
+}
+
+.sapUiIcon {
+    display: inline;
+}
+
+.systemTime input {
     letter-spacing: 1.00rem;
     margin-left: 0.6em;
+}
+
+.manualTime input {
+    letter-spacing: 1.00rem;
+}
+
+
+/*announcement css*/
+
+.announcement .sapMFT {
+    font-size: 1rem !important;
+}
+
+
+/********************************************Pin CSS*********************************/
+
+.pin {
+    background-color: #4F0000 !important;
+}
+
+.pinBody .sapMPanelContent {
+    padding: 20px 30px 10px 30px !important;
+    border-bottom: none !important;
+    background-color: #4F0000 !important;
+    position: relative !important;
+}
+
+.passcodeCircles {
+    display: table !important;
+    margin: 0 auto !important;
+    padding: 20px !important;
+}
+
+.passcodeCircles .testing {
+    display: -webkit-inline-box;
+}
+
+.circle-15 {
+    border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    -webkit-border-radius: 50% !important;
+    height: 35px !important;
+    width: 35px !important;
+    padding: 0px !important;
+    margin: auto 5px !important;
+}
+
+.circle.circle-default {
+    background-color: #ffffff !important;
+}
+
+.circle.circle-filled {
+    background-color: #870106 !important;
+}
+
+.keypadContainer .sapMPanelContent {
+    border-bottom: none !important;
+    padding: 0 !important;
+    overflow: visible !important;
+}
+
+.keypadContainer .sapMPanelContent .marginBottom25 {
+    margin-bottom: 15px !important;
+}
+
+.keypadBtn {
+    width: 80px !important;
+    height: 65px !important;
+    padding: 0px !important;
+}
+
+.keypadBtn .sapMBtnInner {
+    background-color: #ffffff !important;
+    border: none !important;
+    text-shadow: none !important;
+    height: 65px !important;
+    border-radius: 4px !important;
+    padding: 0 !important;
+}
+
+.keypadBtn .sapMBtnInner .sapMBtnContent {
+    text-shadow: none !important;
+    background-color: #ffffff !important;
+    font-size: 2rem !important;
+    color: #4F0000 !important;
+    font-family: semiBoldFont !important;
+    line-height: 65px !important;
+    border-radius: 4px !important;
+    border: none !important;
+}
+
+.keypadBtn .sapMFocusable {
+    outline: none !important;
+}
+
+.keypadBtn .sapMBtnInner.sapMBtnActive .sapMBtnContent {
+    background-color: #870106 !important;
+    color: #ffffff !important;
+}
+
+.keypadBtn1 {
+    width: 80px !important;
+    height: 65px !important;
+    padding: 0px !important;
+}
+
+.keypadBtn1 .sapMBtnInner {
+    background-color: #ffffff !important;
+    border: none !important;
+    text-shadow: none !important;
+    height: 65px !important;
+    border-radius: 4px !important;
+    padding: 0px !important;
+}
+
+.keypadBtn1 .sapMBtnInner .sapMBtnContent {
+    background-color: #ffffff !important;
+    text-shadow: none !important;
+    font-size: 1.125rem !important;
+    color: #4F0000 !important;
+    font-family: semiBoldFont !important;
+    line-height: 18px !important;
+    border: none !important;
+    white-space: inherit !important;
+    border-radius: 4px !important;
+    height: 53px !important;
+    padding: 17px 0px 0px 0px !important;
+    font-weight: bold !important;
+}
+
+.keypadBtn1 .sapMFocusable {
+    outline: none !important;
+}
+
+.keypadBtn1 .sapMBtnInner.sapMBtnActive .sapMBtnContent {
+    background-color: #870106 !important;
+    color: #ffffff !important;
+}
+
+.keypadBtn2 {
+    width: 80px !important;
+    height: 65px !important;
+    padding: 0px !important;
+}
+
+.keypadBtn2 .sapMBtnInner {
+    background-color: #ffffff !important;
+    border: none !important;
+    text-shadow: none !important;
+    height: 65px !important;
+    border-radius: 2px !important;
+    padding: 0 !important;
+    position: relative !important;
+}
+
+.keypadBtn2 .sapMBtnInner .sapMBtnIcon {
+    background-color: #ffffff !important;
+    width: 40px !important;
+    padding: 18px 20px !important;
+    border-radius: 4px !important;
+}
+
+.keypadBtn2 .sapMFocusable {
+    outline: none !important;
+    background-color: #ffffff !important;
+}
+
+.keypadBtn2 .sapMBtnInner.sapMBtnActive .sapMBtnIcon {
+    background-color: #870106 !important;
+    color: #ffffff !important;
+    content: url("../img/backspace-selected.png") !important;
+}
+
+.pinLogout {
+    position: absolute !important;
+    width: 60px !important;
+    top: 0 !important;
+    right: 15px !important;
+}
+
+@media only screen and (max-width: 359px) {
+    .pinBody .sapMPanelContent {
+        padding: 20px 30px 10px 30px !important;
+        border-bottom: none !important;
+        background-color: #4F0000 !important;
+        position: relative !important;
+    }
+    .passcodeCircles .sapMFlexItem {
+        width: 100% !important;
+    }
+    .passcodeCircles {
+        text-align: center !important;
+        margin: 15px 0px 20px 0px !important;
+        padding: 0 14% !important;
+    }
+    .circle-15 {
+        border-radius: 50% !important;
+        -moz-border-radius: 50% !important;
+        -webkit-border-radius: 50% !important;
+        height: 12px !important;
+        width: 12px !important;
+        padding: 0px !important;
+        margin: 0 auto !important;
+    }
+    .circle.circle-default {
+        background-color: #ffffff !important;
+    }
+    .circle.circle-filled {
+        background-color: #870106 !important;
+    }
+    .keypadContainer .sapMPanelContent {
+        border-bottom: none !important;
+        padding: 0 25px !important;
+        overflow: visible !important;
+    }
+    .keypadContainer .sapMPanelContent .marginBottom25 {
+        margin-bottom: 15px !important;
+    }
+    .keypadBtn {
+        width: 55px !important;
+        height: 50px !important;
+        padding: 0px !important;
+    }
+    .keypadBtn .sapMBtnInner {
+        background-color: #ffffff !important;
+        border: none !important;
+        text-shadow: none !important;
+        height: 50px !important;
+        border-radius: 2px !important;
+        padding: 0 !important;
+    }
+    .keypadBtn .sapMBtnInner .sapMBtnContent {
+        text-shadow: none !important;
+        background-color: #ffffff !important;
+        font-size: 1.5rem !important;
+        color: #4F0000 !important;
+        font-family: semiBoldFont !important;
+        line-height: 50px !important;
+        border-radius: 4px !important;
+        border: none !important;
+    }
+    .keypadBtn .sapMFocusable {
+        outline: none !important;
+    }
+    .keypadBtn .sapMBtnInner.sapMBtnActive .sapMBtnContent {
+        background-color: #870106 !important;
+        color: #ffffff !important;
+    }
+    .keypadBtn1 {
+        width: 55px !important;
+        height: 50px !important;
+        padding: 0px !important;
+    }
+    .keypadBtn1 .sapMBtnInner {
+        background-color: #ffffff !important;
+        border: none !important;
+        text-shadow: none !important;
+        height: 50px !important;
+        border-radius: 2px !important;
+        padding: 0px !important;
+    }
+    .keypadBtn1 .sapMBtnInner .sapMBtnContent {
+        background-color: #ffffff !important;
+        text-shadow: none !important;
+        font-size: 0.875rem !important;
+        color: #4F0000 !important;
+        font-family: semiBoldFont !important;
+        line-height: 14px !important;
+        border: none !important;
+        white-space: inherit !important;
+        border-radius: 4px !important;
+        height: 38px !important;
+        padding: 12px 0px 0px 0px !important;
+        font-weight: bold !important;
+    }
+    .keypadBtn1 .sapMFocusable {
+        outline: none !important;
+    }
+    .keypadBtn1 .sapMBtnInner.sapMBtnActive .sapMBtnContent {
+        background-color: #870106 !important;
+        color: #ffffff !important;
+    }
+    .keypadBtn2 {
+        width: 55px !important;
+        height: 50px !important;
+        padding: 0px !important;
+    }
+    .keypadBtn2 .sapMBtnInner {
+        background-color: #ffffff !important;
+        border: none !important;
+        text-shadow: none !important;
+        height: 50px !important;
+        border-radius: 2px !important;
+        padding: 0 !important;
+        position: relative !important;
+    }
+    .keypadBtn2 .sapMBtnInner .sapMBtnIcon {
+        background-color: #ffffff !important;
+        width: 30px !important;
+        padding: 14px 10px !important;
+        border-radius: 4px !important;
+    }
+    .keypadBtn2 .sapMFocusable {
+        outline: none !important;
+        background-color: #ffffff !important;
+    }
+    .keypadBtn2 .sapMBtnInner.sapMBtnActive .sapMBtnIcon {
+        background-color: #870106 !important;
+        color: #ffffff !important;
+        content: url("../img/backspace-selected.png") !important;
+    }
+    .pinLogout {
+        position: absolute !important;
+        width: 40px !important;
+        top: 0 !important;
+        right: 15px !important;
+    }
+    .marginBottom25 {
+        margin-bottom: 20px !important;
+    }
 }

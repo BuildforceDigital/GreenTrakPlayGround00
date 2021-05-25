@@ -28,10 +28,8 @@ public class OdataListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent sce) {
         final DataSource ds = DataSourceHelper.createDataSource(DataSourceHelper.DB_HSQLDB);
         try {
-
             final JPAODataServiceContext serviceContext =
-                    new JPAODataServiceContext(OdataServlet.PUNIT_NAME, ds, "tutorial.operations", "tutorial.model");
-
+                    new JPAODataServiceContext(OdataServlet.PUNIT_NAME, ds, "tutorial.model");
             sce.getServletContext().setAttribute("ServiceContext", serviceContext);
         } catch (RuntimeException | ODataJPAFilterException | ODataJPAException e) {
             log(e.getMessage());

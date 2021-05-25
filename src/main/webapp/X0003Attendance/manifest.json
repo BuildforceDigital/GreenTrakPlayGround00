@@ -1,9 +1,9 @@
 {
-	"_version": "1.25.0",
+	"_version": "1.32.0",
   "sap.app": {
     "applicationVersion": {"version": "0.0.0"},
     "dataSources": {
-      "employeeRemote": {
+      "default": {
         "uri": "/ContextPath/ServletPath.svc/",
         "type": "OData",
         "settings": {
@@ -41,7 +41,7 @@
     "handleValidation": true,
     "models": {
       "attendanceEventMod": {
-        "dataSource": "employeeRemote",
+        "dataSource": "default",
         "preload": true,
         "settings": {
           "autoExpandSelect": true,

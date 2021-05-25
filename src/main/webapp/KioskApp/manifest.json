@@ -1,5 +1,5 @@
 {
-	"_version": "1.7.0",
+	"_version": "1.32.0",
 	"sap.app": {
 		"id": "ditum.ui.kioskKioskApp",
 		"type": "application",
@@ -14,7 +14,6 @@
 			"version": "1.40.12"
 		}
 	},
-
 	"sap.ui": {
 		"technology": "UI5",
 		"icons": {
@@ -80,9 +79,9 @@
 				"name": "ResultNFC",
 				"target": "ResultNFC"
 			}, {
-				"pattern": "confirmation",
-				"name": "ConfirmationView",
-				"target": "ConfirmationView"
+				"pattern": "error",
+				"name": "ErrorPage",
+				"target": "ErrorPage"
 			}],
 			"targets": {
 				"ReadNFC": {
@@ -95,9 +94,9 @@
 					"viewName": "ResultNFC",
 					"transition": "flip"
 				},
-				"ConfirmationView": {
+				"ErrorPage": {
 					"viewType": "XML",
-					"viewName": "ConfirmationView",
+					"viewName": "ErrorPage",
 					"transition": "flip"
 				}
 			}

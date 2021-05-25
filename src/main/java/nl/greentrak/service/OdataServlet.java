@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import nl.buildforce.olingo.commons.api.ex.ODataException;
 import nl.buildforce.sequoia.processor.core.api.JPAODataCRUDContextAccess;
-import nl.buildforce.sequoia.processor.core.api.JPAODataGetHandler;
+import nl.buildforce.sequoia.processor.core.api.JPAODataHandler;
 import nl.buildforce.sequoia.processor.core.processor.JPAODataRequestContextImpl;
 import nl.greentrak.persistence.ExampleCUDRequestHandler;
 
@@ -19,7 +19,7 @@ public class OdataServlet extends HttpServlet {
 	protected void service(final HttpServletRequest req, final HttpServletResponse resp) throws ServletException {
 		final JPAODataCRUDContextAccess serviceContext =
 				(JPAODataCRUDContextAccess) getServletContext().getAttribute("ServiceContext");
-		final JPAODataGetHandler handler = new JPAODataGetHandler(serviceContext); // JPAODataCRUDHandler(serviceContext);
+		final JPAODataHandler handler = new JPAODataHandler(serviceContext); // JPAODataCRUDHandler(serviceContext);
 
 
 		((JPAODataRequestContextImpl) handler.getJPAODataRequestContext()).setCUDRequestHandler(new ExampleCUDRequestHandler());

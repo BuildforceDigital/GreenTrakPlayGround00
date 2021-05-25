@@ -8,14 +8,17 @@
    * Single user HyperSQL database, conditional maintained by Flyway (see VXX__DEV_GREENTRAK00.sql scripts)
 
 ##### Stack:
-0. OS shell
+0. OS shell - the bare command line.
+   1. (Optional startup shell script.)
     1. JVM
         1. Eclipse Jetty application server
-            1. Web archive (war)
+            1. Exploded web archive (war)
+                1. Static HTML files and supporting files, ECMA script, config JSON's, view XML's
+                1. OData v4 data service to populate the clients pages.
 
 ##### Installation:
 0. Download and install JDK 11 a Long-Term-Support (LTS) release or higher. (Test with 'java -version')
-0. Install Jetbrain IntelliJ Idea with the Scala option.
+0. Install Jetbrains IntelliJ Idea with the Scala option.
 0. Put the undermentioned content in your .m2 user home directory as a settings.xml file.
 0. Download and install Eclipse Jetty 11.
 0. Clone this GTplayGround00 project with the Idea IDE.
